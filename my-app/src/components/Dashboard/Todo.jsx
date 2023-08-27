@@ -3,7 +3,7 @@ import styles from './dashboard.module.css'
 function Todo() {
     return <section>
         <div>
-            <p>Tasks List</p>
+            <p className={styles.tasks_txt}>Tasks List</p>
             <button></button>
         </div>
         <div>

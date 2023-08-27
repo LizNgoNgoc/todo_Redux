@@ -10,6 +10,7 @@ function App() {
       <Splush />
       <Registration />
       <Login />
+      <Dashboard />
   </section>
 }
 
