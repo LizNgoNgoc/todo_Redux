@@ -5,14 +5,14 @@ function Dashboard () {
     return <section>
         <div>
             <img></img>
-            <h3></h3>
+            <h3>Welcome, Oliva Grace</h3>
         </div>
         <div>
-            <p></p>
+            <p>Good Afternoon</p>
             <img src="" alt="" />
         </div>
         <div>
-            <h3></h3>
+            <h3>Tasks List</h3>
         </div>
         <Todo />
     </section>

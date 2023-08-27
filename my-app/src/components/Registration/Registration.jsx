@@ -1,7 +1,7 @@
-import styles from './regidtration.module.css';
+import styles from './registration.module.css';
 
 function Regstration() {
-    return <form>
+    return <form className={styles.registration}>
         <div>
             <h3>Welcome Dolphin!</h3>
             <p>Let’s help you meet up your tasks</p>
