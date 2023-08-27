@@ -1,4 +1,5 @@
 import styles from './splush.module.css';
+import { Link } from 'react-router-dom';
 
 function Splush() {
     return <section className={styles.splash}>
@@ -8,7 +9,7 @@ function Splush() {
             <p className={styles.txt}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Interdum dictum tempus, interdum at dignissim metus. Ultricies sed nunc.</p>
         </div>
-        <button className={styles.btn}>Get Started</button>
+        <Link to={'/signIn'} className={styles.btn}>Get Started</Link>
     </section>
 }
 

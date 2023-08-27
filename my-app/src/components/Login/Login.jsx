@@ -1,4 +1,5 @@
 import styles from './login.module.css';
+import { Link } from 'react-router-dom';
 
 function Login () {
     return <section className={styles.login}>
@@ -13,7 +14,7 @@ function Login () {
         <div className={styles.pass_container}>
             <a className={styles.link}>Forgot Password</a>
             <button className={styles.btn}>Sign In</button>
-            <p className={styles.txt}>Don’t have an account ? <a className={styles.link}>Sign Up</a></p>
+            <p className={styles.txt}>Don’t have an account ? <Link to={'/signUp'}className={styles.link}>Sign Up</Link></p>
         </div>
     </section>
 }
