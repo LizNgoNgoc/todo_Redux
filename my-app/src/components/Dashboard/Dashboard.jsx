@@ -10,11 +10,11 @@ function Dashboard () {
             <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
             <h3 className={styles.header}>Welcome, Oliva Grace</h3>
         </div>
-        <div>
+        <div className={styles.date_container}>
             <p className={styles.txt}>Good Afternoon</p>
-            <p>{date}</p>
+            <p className={styles.date_num}>{date}</p>
         </div>
-        <div>
+        <div className={styles.todo_container}>
             <h3 className={styles.todo_header}>Tasks List</h3>
             <Todo />
         </div>
