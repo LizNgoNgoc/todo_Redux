@@ -1,4 +1,4 @@
-import styles from './dashboard.module.css'
+import styles from './todo.module.css'
 
 function Todo() {
     return <section className={styles.todo_area}>

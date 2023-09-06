@@ -1,5 +1,5 @@
 import styles from './dashboard.module.css';
-import Todo from './Todo';
+import Todo from '../../components/Todo/Todo';
 import { useSelector, useDispatch } from 'react-redux';
 
 function Dashboard () {
