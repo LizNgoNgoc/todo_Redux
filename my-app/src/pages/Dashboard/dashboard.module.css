@@ -67,7 +67,7 @@
     font-weight: 600;
     line-height: 115.688%; 
     letter-spacing: 1.08px;
-
+    margin-bottom: 10px;
 }
 
 .check_container {
@@ -82,7 +82,5 @@
     gap: 21px;
 }
 
-.todo_container {
-    width: 100%;
-}
+
 
