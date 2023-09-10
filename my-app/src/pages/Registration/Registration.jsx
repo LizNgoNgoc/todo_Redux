@@ -1,5 +1,6 @@
 import styles from './registration.module.css';
 import { useState } from 'react';
+import { passwordValidation, mailValidation } from '../../components/validation/validation';
 
 function Regstration() {
 

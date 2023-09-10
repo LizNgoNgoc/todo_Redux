@@ -1,7 +1,7 @@
 import styles from './login.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
+import { passwordValidation, mailValidation } from '../../components/validation/validation';
 
 
 function Login () {
@@ -11,9 +11,20 @@ function Login () {
         password : ''
     })
 
+    const[errMessage, setErrMessage] = useState({
+        email : false,
+        password : false
+    })
+
     function handleChange({target}) {
         const {name, value} = target
         setInputs({...inputs, [name] : value})
+        
+    }
+
+    function handleErrMessage(e, Validation) {
+        const valid = !Validation(e)
+        setErrMessage({...errMessage, [e.target.name] : valid})
     }
 
     function handleSubmit(e) {
@@ -28,8 +39,10 @@ function Login () {
                 <img src="./images/Slice 2.png" alt='img'/>
             </div>
             <div className={styles.inp_container}>
-                <input type="text" className={styles.inp} onChange={handleChange} name='email' placeholder='Enter your email'/>
-                <input type="text" className={styles.inp} onChange={handleChange} name='password' placeholder='Enter password'/>
+                <input type="text" className={styles.inp} onChange={handleChange} onInput={(e) => handleErrMessage(e, mailValidation)} name='email' placeholder='Enter your email'/>
+                <p className={`${styles.error} ${errMessage.email ? styles.show : ''}`}>Error</p>
+                <input type="text" className={styles.inp} onChange={handleChange} onInput={(e) => handleErrMessage(e, passwordValidation)} name='password' placeholder='Enter password'/>
+                <p className={`${styles.error} ${errMessage.password ? styles.show : ''}`}>Error</p>
             </div>
             <div className={styles.pass_container}>
                 <a className={styles.link}>Forgot Password</a>

@@ -94,3 +94,13 @@
     line-height: 115.688%; 
     letter-spacing: 0.84px;
 }
+
+.error {
+    color: rgba(216, 59, 59, 0.568);
+    font-size: 10px;
+    display: none;
+}
+
+.show {
+    display: block;
+}
