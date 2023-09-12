@@ -40,9 +40,9 @@ function Login () {
             </div>
             <div className={styles.inp_container}>
                 <input type="text" className={styles.inp} onChange={handleChange} onInput={(e) => handleErrMessage(e, mailValidation)} name='email' placeholder='Enter your email'/>
-                <p className={`${styles.error} ${errMessage.email ? styles.show : ''}`}>Error</p>
+                <p className={`${styles.error} ${errMessage.email ? styles.show : ''}`}>Error: your email is incorrect</p>
                 <input type="text" className={styles.inp} onChange={handleChange} onInput={(e) => handleErrMessage(e, passwordValidation)} name='password' placeholder='Enter password'/>
-                <p className={`${styles.error} ${errMessage.password ? styles.show : ''}`}>Error</p>
+                <p className={`${styles.error} ${errMessage.password ? styles.show : ''}`}>Error: your password is incorrect</p>
             </div>
             <div className={styles.pass_container}>
                 <a className={styles.link}>Forgot Password</a>

@@ -11,6 +11,20 @@ function Regstration() {
         confirm : ''
     })
 
+    const[errMessage, setErrMessage] = useState({
+        email : false,
+        password : false
+    })
+
+    const [confirmPassword, setConfirmPassword] = useState("")
+    const validateForm = () => inputs.password === confirmPassword
+
+
+    function handleErrMessage(e, Validation) {
+        const valid = !Validation(e)
+        setErrMessage({...errMessage, [e.target.name] : valid})
+    }
+
     function handleChange({target}) {
         const {name, value} = target
         setInputs({...inputs, [name] : value})
@@ -28,9 +42,12 @@ function Regstration() {
         </div>
         <div className={styles.inp_container}>
             <input type="text" className={styles.inp} name='name' onChange={handleChange} placeholder='Enter your full name'/>
-            <input type="text" className={styles.inp} name='email' onChange={handleChange} placeholder='Enter your email'/>
-            <input type="text" className={styles.inp} name='password' onChange={handleChange} placeholder='Enter password' />
-            <input type="text" className={styles.inp} name='confirm' onChange={handleChange} placeholder='Confirm Password' />
+            <input type="text" className={styles.inp} name='email' onChange={handleChange} onInput={(e) => handleErrMessage(e, mailValidation)} placeholder='Enter your email'/>
+            <p className={`${styles.error} ${errMessage.email ? styles.show : ''}`}>Error: your email is incorrect</p>
+            <input type="text" className={styles.inp} name='password' onChange={handleChange} onInput={(e) => handleErrMessage(e, passwordValidation)} placeholder='Enter password' />
+            <p className={`${styles.error} ${errMessage.password ? styles.show : ''}`}>Error: your password is incorrect</p>
+            <input type="text" className={styles.inp} name='confirm' onChange={handleChange} onInput={(e) => setConfirmPassword(e.target.value)} placeholder='Confirm Password' />
+            {!validateForm() && <p className={`${styles.error} ${errMessage.password ? styles.show : ''}`} >Passwords do not match</p>}
         </div>
         <div className={styles.reg}>
             <button className={styles.btn}>Registration</button>
