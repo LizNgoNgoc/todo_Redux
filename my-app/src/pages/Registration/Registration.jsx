@@ -13,16 +13,20 @@ function Regstration() {
 
     const[errMessage, setErrMessage] = useState({
         email : false,
-        password : false
+        password : false,
+        confirm : false
     })
 
     const [confirmPassword, setConfirmPassword] = useState("")
-    const validateForm = () => inputs.password === confirmPassword
+    // const validateConfirm = () =>  {
+    //     setErrMessage({...errMessage, confirm : })
+    // }
 
 
     function handleErrMessage(e, Validation) {
         const valid = !Validation(e)
-        setErrMessage({...errMessage, [e.target.name] : valid})
+        setErrMessage({...errMessage, [e.target.name] : valid, confirm : inputs.confirm !== confirmPassword })
+        console.log(errMessage);
     }
 
     function handleChange({target}) {
@@ -44,10 +48,13 @@ function Regstration() {
             <input type="text" className={styles.inp} name='name' onChange={handleChange} placeholder='Enter your full name'/>
             <input type="text" className={styles.inp} name='email' onChange={handleChange} onInput={(e) => handleErrMessage(e, mailValidation)} placeholder='Enter your email'/>
             <p className={`${styles.error} ${errMessage.email ? styles.show : ''}`}>Error: your email is incorrect</p>
-            <input type="text" className={styles.inp} name='password' onChange={handleChange} onInput={(e) => handleErrMessage(e, passwordValidation)} placeholder='Enter password' />
+            <input type="text" className={styles.inp} name='password' onChange={handleChange} onInput={(e) => {
+                handleErrMessage(e, passwordValidation);
+                setConfirmPassword(e.target.value);
+            }} placeholder='Enter password' />
             <p className={`${styles.error} ${errMessage.password ? styles.show : ''}`}>Error: your password is incorrect</p>
-            <input type="text" className={styles.inp} name='confirm' onChange={handleChange} onInput={(e) => setConfirmPassword(e.target.value)} placeholder='Confirm Password' />
-            {!validateForm() && <p className={`${styles.error} ${errMessage.password ? styles.show : ''}`} >Passwords do not match</p>}
+            <input type="text" className={styles.inp} name='confirm' onChange={handleChange} onInput={(e) => handleErrMessage(e, passwordValidation)} placeholder='Confirm Password' />
+            <p className={`${styles.error} ${errMessage.confirm ? styles.show : ''}`} >Passwords do not match</p>
         </div>
         <div className={styles.reg}>
             <button className={styles.btn}>Registration</button>
