@@ -1,5 +1,5 @@
 function passwordValidation(e) {
-    const pass =  /^[A-Za-z]\w{7,14}$/;
+    const pass = /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g;
     const value = e.target.value
     return pass.test(value)
 }
@@ -10,4 +10,9 @@ function mailValidation(e) {
     return EMAIL_REGEXP.test(value)
 }
 
-export {passwordValidation, mailValidation}
+function nameValidation(e) {
+    const value = e.target.value
+    return value.length > 0
+}
+
+export {passwordValidation, mailValidation, nameValidation}
