@@ -9,12 +9,12 @@ const initialState = {
     : date.getMonth() + 1}.${date.getFullYear()}`
 }
 
-export const GetDate = createSlice({
+const GetDate = createSlice({
     name : 'date',
     initialState,
     reducers : {
     }
 })
 
-
+// export {} = GetDate.actions
 export default GetDate.reducer

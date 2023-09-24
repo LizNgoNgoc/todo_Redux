@@ -1,8 +1,15 @@
 import styles from './registration.module.css';
 import { useEffect, useState } from 'react';
 import { passwordValidation, mailValidation, nameValidation } from '../../components/validation/validation';
+import { disable, setConfirm } from '../../redux/slices/Registration';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Regstration() {
+
+    const disabledBtn = useSelector((state) => state.registrationSlice.disableBtn)
+    const confirmPassword = useSelector((state) => state.registrationSlice.confirmPassword)
+    const dispatch = useDispatch()
+
 
     const[inputs, setInputs] = useState({
         name : '',
@@ -17,15 +24,13 @@ function Regstration() {
         confirm : false,
         name : false,
     })
-    const [confirmPassword, setConfirmPassword] = useState("")
 
-    const [disabledBtn, setDisabledBtn] = useState(true)
 
     useEffect((e) => {
         setErrMessage({...errMessage, confirm : inputs.confirm !== confirmPassword })
-        setDisabledBtn(Object.values(errMessage).includes(true) || Object.values(inputs).some(i => i.length === 0))
-        
-    }, [confirmPassword, inputs])
+        console.log(confirmPassword);
+        dispatch(disable(Object.values(errMessage).includes(true) || Object.values(inputs).some(i => i.length === 0)))
+    }, [inputs])
 
     function handleErrMessage(e, Validation) {
         const valid = !Validation(e)
@@ -54,7 +59,7 @@ function Regstration() {
             <p className={`${styles.error} ${errMessage.email ? styles.show : ''}`}>Error: your email is incorrect</p>
             <input type="text" className={styles.inp} name='password' onChange={handleChange} onInput={(e) => {
                 handleErrMessage(e, passwordValidation);
-                setConfirmPassword(e.target.value);
+                dispatch(setConfirm(e.target.value))
             }} placeholder='Enter password' />
             <p className={`${styles.error} ${errMessage.password ? styles.show : ''}`}>Error: your password is incorrect</p>
             <input type="text" className={styles.inp} name='confirm' onChange={handleChange} onInput={(e) => handleErrMessage(e, passwordValidation)} placeholder='Confirm Password' />
