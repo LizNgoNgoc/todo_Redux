@@ -1,6 +1,17 @@
 import styles from './todo.module.css'
-
+import { useEffect, useState } from 'react';
+import api from '../../service/api';
 function Todo() {
+
+    const [todos, setTodos] = useState([])
+
+    useEffect(() => {
+        api.apiTodos()
+            .then(todos => {
+                console.log(todos);
+                setTodos(todos)})
+    }, [])
+
     return <section className={styles.todo_area}>
         <div className={styles.check_container}>
             <div className={styles.tasks_cont}>
@@ -8,6 +19,12 @@ function Todo() {
                 <button className={styles.btn_task}></button>
             </div>
             <div className={styles.inputs_container}>
+            {todos.map(todo => {
+            return   <div className={styles.label_cont}>
+                <input type="checkbox" id={todo._id}/>
+                <label htmlFor="task5" className={styles.inputs_text}>{todo.title}</label>
+            </div>  
+            })}
                 <div className={styles.label_cont}>
                     <input type="checkbox" id='task'/>
                     <label htmlFor="task" className={styles.inputs_text}>Cook Rice and Chicken at 10 am</label>

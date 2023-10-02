@@ -1,8 +1,8 @@
 import styles from './login.module.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { passwordValidation, mailValidation } from '../../components/validation/validation';
-
+import api from '../../service/api';
 
 function Login () {
 
@@ -29,7 +29,13 @@ function Login () {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(inputs)
+        api.apiLogin(inputs)
+            .then(({token}) => {
+                localStorage.setItem('token', token)
+                if(token){
+                    return <Navigate to='/todos'/>
+                  }
+            })
     }
 
     return <section className={styles.login}>
