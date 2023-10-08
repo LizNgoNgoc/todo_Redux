@@ -2,10 +2,12 @@ import styles from './dashboard.module.css';
 import Todo from '../../components/Todo/Todo';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Form from '../../components/Form/Form';
 
 
 function Dashboard () {
-
+    
+    const [toggle, setToggle] = useState(false)
 
 
     return <section className={styles.dashboard}>
@@ -20,7 +22,8 @@ function Dashboard () {
         </div>
         <div className={styles.todo_container}>
             <h3 className={styles.todo_header}>Tasks List</h3>
-            <Todo />
+
+            {toggle ? <Form /> : <Todo setToggle={setToggle} />}
            
         </div>
     </section>

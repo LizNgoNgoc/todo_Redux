@@ -1,10 +1,15 @@
 import styles from './login.module.css';
-import { Link, Navigate } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { passwordValidation, mailValidation } from '../../components/validation/validation';
 import api from '../../service/api';
 
 function Login () {
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        if(localStorage.getItem('token')) navigate('/todos') 
+    }, [])
 
     const[inputs, setInputs] = useState({
         email : '',
@@ -33,7 +38,7 @@ function Login () {
             .then(({token}) => {
                 localStorage.setItem('token', token)
                 if(token){
-                    return <Navigate to='/todos'/>
+                    return navigate('/todos')
                   }
             })
     }

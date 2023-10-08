@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { passwordValidation, mailValidation, nameValidation } from '../../components/validation/validation';
 import { disable, setConfirm } from '../../redux/slices/Registration';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Regstration() {
 
@@ -67,7 +68,7 @@ function Regstration() {
         </div>
         <div className={styles.reg}>
             <button disabled={disabledBtn} className={`${styles.btn} ${disabledBtn ? styles.disabled : ''}`}>Registration</button>
-            <p className={styles.txt_link}>Already have an account ? <a className={styles.link}>Sign In</a></p>
+            <p className={styles.txt_link}>Already have an account ? <Link to={'/signIn'}className={styles.link}>Sign In</Link></p>
         </div>
     </form>
 }
