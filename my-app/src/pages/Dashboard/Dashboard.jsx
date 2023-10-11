@@ -23,7 +23,7 @@ function Dashboard () {
         <div className={styles.todo_container}>
             <h3 className={styles.todo_header}>Tasks List</h3>
 
-            {toggle ? <Form /> : <Todo setToggle={setToggle} />}
+            {toggle ? <Form setToggle={setToggle} /> : <Todo setToggle={setToggle} />}
            
         </div>
     </section>

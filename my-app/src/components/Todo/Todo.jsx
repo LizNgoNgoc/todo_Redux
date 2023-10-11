@@ -1,9 +1,12 @@
 import styles from './todo.module.css'
 import { useEffect, useState } from 'react';
 import api from '../../service/api';
+
+
 function Todo({setToggle}) {
 
     const [todos, setTodos] = useState([])
+   
 
     useEffect(() => {
         api.apiTodos()
