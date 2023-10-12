@@ -2,6 +2,7 @@ import styles from './form.module.css'
 import { useEffect, useState } from 'react'
 import api from '../../service/api'
 import { useSelector, useDispatch } from 'react-redux';
+import { addTodo } from '../../redux/slices/Todo';
 
 
 
@@ -33,19 +34,20 @@ function Form({setToggle}) {
     function getInputValues(e) {
         e.preventDefault()
             api.todoCreate(input)
-            .then({todo}) => {
-                dispatch()
-            }
+            .then(({todo}) => {
+                dispatch(addTodo(input))
+                setInput(input)
+            })
         console.log(input)
     }
     
     return <div className={styles.container}> 
         <button className={styles.btn_task} onClick={() => {setToggle(true)}}></button>
         <form onSubmit={getInputValues}>
-            <input type="text" name='name' placeholder="Header" onChange={handleChange} className={styles.inp}/>
-            <input type="time" name='time' placeholder="Time" onChange={handleChange} className={styles.inp}/>
-            <input type="date" name='date' placeholder="Day" onChange={handleChange} className={styles.inp}/>
-            <input type="text" name='description' placeholder="Description" onChange={handleChange} className={styles.inp}/>
+            <input type="text" name='name' value={input} placeholder="Header" onChange={handleChange} className={styles.inp}/>
+            <input type="time" name='time' value={input} placeholder="Time" onChange={handleChange} className={styles.inp}/>
+            <input type="date" name='date' value={input} placeholder="Day" onChange={handleChange} className={styles.inp}/>
+            <input type="text" name='description' value={input} placeholder="Description" onChange={handleChange} className={styles.inp}/>
             <button className={styles.create_btn}>Create</button>
         </form>
     </div>

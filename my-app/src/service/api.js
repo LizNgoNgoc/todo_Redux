@@ -21,6 +21,15 @@ class Api {
             method : 'GET',
         }).then(responce => responce.json())
     }
+    apiForm() {
+        return fetch(this.url + 'user/me', {
+            headers : {
+                'Content-Type' : 'application/json',
+                authorization : localStorage.getItem('token')
+            },
+            method : 'GET',
+        }).then(responce => responce.json())
+    }
 }
 
 const api = new Api()
