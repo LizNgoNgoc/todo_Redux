@@ -8,7 +8,7 @@ import { addTodo } from '../../redux/slices/Todo';
 
 
 function Form({setToggle}) {
-    const [todos, setTodos] = useState([])
+    // const [todos, setTodos] = useState([])
     const [input, setInput] = useState({
         name: '',
         time: '',
@@ -16,14 +16,18 @@ function Form({setToggle}) {
         description: ''
     })
 
-    const getData = useSelector((state) => state.todoSlice.todos)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
-        api.apiTodos()
-            .then(todos => {
-                setTodos(todos)})
+        getTodos()
     }, [])
+
+    function getTodos(){
+        api.apiTodos()
+        .then(todos => {
+            dispatch(addTodo(todos))})
+    }
 
     function handleChange({target}) {
         const {name, value} = target
@@ -33,21 +37,18 @@ function Form({setToggle}) {
     
     function getInputValues(e) {
         e.preventDefault()
-            api.todoCreate(input)
-            .then(({todo}) => {
-                dispatch(addTodo(input))
-                setInput(input)
-            })
+            api.apiTodoCreate(input)
+            .then(({todo}) => setToggle(true))
         console.log(input)
     }
     
-    return <div className={styles.container}> 
+    return <div className={styles.container}>
         <button className={styles.btn_task} onClick={() => {setToggle(true)}}></button>
         <form onSubmit={getInputValues}>
-            <input type="text" name='name' value={input} placeholder="Header" onChange={handleChange} className={styles.inp}/>
-            <input type="time" name='time' value={input} placeholder="Time" onChange={handleChange} className={styles.inp}/>
-            <input type="date" name='date' value={input} placeholder="Day" onChange={handleChange} className={styles.inp}/>
-            <input type="text" name='description' value={input} placeholder="Description" onChange={handleChange} className={styles.inp}/>
+            <input type="text" name='name' value={input.name} placeholder="Header" onChange={handleChange} className={styles.inp}/>
+            <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={styles.inp}/>
+            <input type="date" name='date' value={input.date} placeholder="Day" onChange={handleChange} className={styles.inp}/>
+            <input type="text" name='description' value={input.description} placeholder="Description" onChange={handleChange} className={styles.inp}/>
             <button className={styles.create_btn}>Create</button>
         </form>
     </div>

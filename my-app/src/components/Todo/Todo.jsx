@@ -1,17 +1,19 @@
 import styles from './todo.module.css'
 import { useEffect, useState } from 'react';
 import api from '../../service/api';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo } from '../../redux/slices/Todo';
 
 
 function Todo({setToggle}) {
 
-    const [todos, setTodos] = useState([])
-   
-
+    const todos = useSelector((state) => state.todoSlice.todos)
+    const dispatch = useDispatch()
+    console.log(todos);
     useEffect(() => {
         api.apiTodos()
             .then(todos => {
-                setTodos(todos)})
+                dispatch(addTodo(todos))})
     }, [])
 
     return <section className={styles.todo_area}>
