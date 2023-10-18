@@ -3,17 +3,28 @@ import Todo from '../../components/Todo/Todo';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Form from '../../components/Form/Form';
-
+import api from '../../service/api';
+import { addUser } from '../../redux/slices/User';
 
 function Dashboard () {
     
     const [toggle, setToggle] = useState(false)
-
+    
+    const user = useSelector(state => state.userSlice)
+    const dispatch = useDispatch()
+    
+    useEffect(()=>{
+        api.apiForm()
+        .then((data)=>{
+            dispatch(addUser(data))
+            console.log(user)
+        })
+    },[])
 
     return <section className={styles.dashboard}>
         <div className={styles.header_container}>
             <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
-            <h3 className={styles.header}>Welcome, Oliva Grace</h3>
+            <h3 className={styles.header}>{`Welcome, ${user.name}`}</h3>
         </div>
       
         <div className={styles.date_container}>

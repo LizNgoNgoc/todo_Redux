@@ -13,15 +13,13 @@ class Api {
         }).then(responce => responce.json())
     }
     apiTodoCreate(body) {
-        const {title, time, date, description} = body
-        const dayWeek = date
         return fetch(this.url + 'todo/create', {
             headers : {
                 'Content-Type' : 'application/json',
                 authorization : localStorage.getItem('token')
             },
             method : 'POST',
-            body : JSON.stringify({title, time, dayWeek, description})
+            body : JSON.stringify(body)
         }).then(responce => responce.json())
 
     }

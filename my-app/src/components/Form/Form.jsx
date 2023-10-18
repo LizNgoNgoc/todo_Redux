@@ -13,7 +13,8 @@ function Form({setToggle}) {
         name: '',
         time: '',
         date: '',
-        description: ''
+        description: '',
+        completed: false,
     })
 
 
@@ -37,13 +38,14 @@ function Form({setToggle}) {
     
     function getInputValues(e) {
         e.preventDefault()
-            api.apiTodoCreate(input)
-            .then(({todo}) => setToggle(true))
+        const {name, time, date, description, completed} = input
+            api.apiTodoCreate({title : name, time, dayWeek : date, description, completed})
+            .then(({todo}) => setToggle(false))
         console.log(input)
     }
     
     return <div className={styles.container}>
-        <button className={styles.btn_task} onClick={() => {setToggle(true)}}></button>
+        <button className={styles.btn_task} onClick={() => {setToggle(false)}}></button>
         <form onSubmit={getInputValues}>
             <input type="text" name='name' value={input.name} placeholder="Header" onChange={handleChange} className={styles.inp}/>
             <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={styles.inp}/>

@@ -9,6 +9,12 @@
     display: flex;
     flex-direction: column;
     gap: 21px;
+    overflow: scroll;
+    height: 170px;
+}
+
+.inputs_container::-webkit-scrollbar{
+    width: 0;
 }
 
 .todo_container {
