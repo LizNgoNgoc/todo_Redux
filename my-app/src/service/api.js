@@ -24,6 +24,17 @@ class Api {
 
     }
 
+    // apiChecked() {
+    //     return fetch(this.url + '', {
+    //         headers : {
+    //             'Content-Type' : 'application/json',
+    //             authorization : localStorage.onCheckClick('token')
+    //         },
+    //         method : 'POST',
+    //         body : JSON.stringify()
+    //     }).then(response => responce.json())
+    // }
+
     apiTodos(){
         return  fetch(this.url + 'todo/todos', {
             headers : {

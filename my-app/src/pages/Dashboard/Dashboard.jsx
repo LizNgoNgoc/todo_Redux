@@ -12,6 +12,11 @@ function Dashboard () {
     
     const user = useSelector(state => state.userSlice)
     const dispatch = useDispatch()
+    // const logout = (e) => {
+    //     localStorage.clear()
+    //     window.location.href = 'http://localhost:3000/http:/signIn'
+    // }
+    // console.log(logout)
     
     useEffect(()=>{
         api.apiForm()
@@ -22,11 +27,13 @@ function Dashboard () {
     },[])
 
     return <section className={styles.dashboard}>
+        {/* <div className={styles.logout_cont}>
+            <a href='/todos' className={styles.logout} onClick={logout()}>Logout</a>
+        </div> */}
         <div className={styles.header_container}>
             <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
-            <h3 className={styles.header}>{`Welcome, ${user.name}`}</h3>
+            <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
         </div>
-      
         <div className={styles.date_container}>
             <p className={styles.txt}>Good Afternoon</p>
             <p className={styles.date_num}>{}</p>

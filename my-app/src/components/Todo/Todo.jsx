@@ -6,6 +6,18 @@ import { addTodo } from '../../redux/slices/Todo';
 
 
 function Todo({setToggle}) {
+    // const[checkInp, setCheckInp] = useState({})
+    // const onCheckClick = (e) => {
+    //     if(e.target.checked){
+    //         api.apiChecked(checkInp)
+    //         .then(({token}) => {
+    //             localStorage.setCheckInp('token')
+    //             if(token){
+    //                 return 
+    //               }
+    //         })
+    //     }
+    // }
 
     const todos = useSelector((state) => state.todoSlice.todos)
     const dispatch = useDispatch()
@@ -25,7 +37,7 @@ function Todo({setToggle}) {
             <div className={styles.inputs_container}>
                 {todos.map(todo => {
                     return <div className={styles.label_cont} key={todo._id}>
-                        <input type="checkbox" id={todo._id}/>
+                        <input type="checkbox" id={todo._id} onClick={(e) => onCheckClick(e)}/>
                         <label htmlFor="task5" className={styles.inputs_text}>{todo.title}</label>
                     </div>  
                 })}
