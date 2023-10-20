@@ -15,9 +15,10 @@ export default function Todo({todo}) {
             })
     }
 
-
     return <div className={styles.label_cont}>
         <input type="checkbox" checked={task.completed} onChange={onCheckClick}/>
         <label htmlFor="task5" className={styles.inputs_text}>{todo.title}</label>
     </div>  
 }
+
+
