@@ -39,7 +39,7 @@ function Todo({setToggle}) {
                     return <div className={styles.label_cont} key={todo._id}>
                         <input type="checkbox" id={todo._id} onClick={(e) => onCheckClick(e)}/>
                         <label htmlFor="task5" className={styles.inputs_text}>{todo.title}</label>
-                    </div>  
+                    </div>
                 })}
             </div>
         </div>
