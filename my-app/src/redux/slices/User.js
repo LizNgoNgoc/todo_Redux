@@ -10,8 +10,12 @@ export const userSlice = createSlice ({
     reducers: {
         addUser:(state, action) => {
             return state = action.payload
+        },
+        userLogout: (state) => {
+            localStorage.clear()
+            return state = {...initialState, name : ''}
         }
     }
 })
-export const {addUser} = userSlice.actions
+export const {addUser, userLogout} = userSlice.actions
 export default userSlice.reducer

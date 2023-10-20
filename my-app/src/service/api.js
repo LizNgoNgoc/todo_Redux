@@ -24,16 +24,17 @@ class Api {
 
     }
 
-    // apiChecked() {
-    //     return fetch(this.url + '', {
-    //         headers : {
-    //             'Content-Type' : 'application/json',
-    //             authorization : localStorage.onCheckClick('token')
-    //         },
-    //         method : 'POST',
-    //         body : JSON.stringify()
-    //     }).then(response => responce.json())
-    // }
+    apiChecked(body) {
+        return fetch(this.url + `todo/patch?id=${body._id}`, {
+            headers : {
+                'Content-Type' : 'application/json',
+                authorization : localStorage.getItem('token')
+            },
+            method : 'PATCH',
+            body : JSON.stringify({...body, completed : !body.completed})
+        }).then(responce => responce.json())
+      
+    }
 
     apiTodos(){
         return  fetch(this.url + 'todo/todos', {
@@ -52,6 +53,16 @@ class Api {
             },
             method : 'GET',
         }).then(responce => responce.json())
+    }
+
+    apiLogout(){
+        return fetch(this.url + 'user/signout', {
+            headers : {
+                'Content-Type' : 'application/json',
+                authorization : localStorage.getItem('token')
+            },
+            method : 'POST',
+        })
     }
 }
 

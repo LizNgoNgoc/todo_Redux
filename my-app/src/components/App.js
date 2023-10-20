@@ -3,7 +3,7 @@ import Splush from '../pages/Splush/Splush';
 import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
 import Dashboard from '../pages/Dashboard/Dashboard';
-import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function App() {

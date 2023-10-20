@@ -1,22 +1,27 @@
 import styles from './dashboard.module.css';
-import Todo from '../../components/Todo/Todo';
+import Todos from '../../components/Todos/Todos';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Form from '../../components/Form/Form';
 import api from '../../service/api';
-import { addUser } from '../../redux/slices/User';
+import { addUser, userLogout } from '../../redux/slices/User';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard () {
     
     const [toggle, setToggle] = useState(false)
-    
+    const Navigate = useNavigate()
     const user = useSelector(state => state.userSlice)
     const dispatch = useDispatch()
-    // const logout = (e) => {
-    //     localStorage.clear()
-    //     window.location.href = 'http://localhost:3000/http:/signIn'
-    // }
-    // console.log(logout)
+    const logout = (e) => {
+        api.apiLogout()
+            .then((responce) => {
+                if(responce.ok){
+                    dispatch(userLogout())
+                    Navigate('/signIn')
+                }
+            })
+    }
     
     useEffect(()=>{
         api.apiForm()
@@ -27,9 +32,9 @@ function Dashboard () {
     },[])
 
     return <section className={styles.dashboard}>
-        {/* <div className={styles.logout_cont}>
-            <a href='/todos' className={styles.logout} onClick={logout()}>Logout</a>
-        </div> */}
+        <div className={styles.logout_cont}>
+            <button className={styles.logout} onClick={logout}>Logout</button>
+        </div>
         <div className={styles.header_container}>
             <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
@@ -41,7 +46,7 @@ function Dashboard () {
         <div className={styles.todo_container}>
             <h3 className={styles.todo_header}>Tasks List</h3>
 
-            {toggle ? <Form setToggle={setToggle} /> : <Todo setToggle={setToggle} />}
+            {toggle ? <Form setToggle={setToggle} /> : <Todos setToggle={setToggle} />}
            
         </div>
     </section>
