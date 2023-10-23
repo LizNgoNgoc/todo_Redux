@@ -1,7 +1,7 @@
 .inputs_text {
     color: rgba(0, 0, 0, 0.75);
     font-family: Poppins;
-    font-size: 12px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 115.688%; 
@@ -15,6 +15,21 @@
 }
 
 .label_cont {
-    display: flex;
-    gap: 5px;
+    /* display: flex;
+    gap: 5px; */
+    position: relative;
+}
+
+.btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.description {
+    
+}
+
+.none {
+    display: none;
 }

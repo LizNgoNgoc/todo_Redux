@@ -1,11 +1,8 @@
 import styles from './dashboard.module.css';
 import Todos from '../../components/Todos/Todos';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import {  useState } from 'react';
 import Form from '../../components/Form/Form';
-import api from '../../service/api';
-import { addUser, userLogout } from '../../redux/slices/User';
-import { useNavigate } from 'react-router-dom';
 import Logout from '../../components/Logout/Logout';
 
 function Dashboard () {
