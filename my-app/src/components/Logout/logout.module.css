@@ -5,4 +5,12 @@
 
 .logout {
     margin: 45px 0 0 265px;
+    color: rgba(0, 0, 0, 0.75);
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 115.688%; 
+    letter-spacing: 0.72px;
+    border-radius: 4px;
 }

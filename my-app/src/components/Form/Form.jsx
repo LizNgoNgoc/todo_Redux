@@ -7,8 +7,11 @@ import { addTodo } from '../../redux/slices/Todo';
 
 
 
-function Form({setToggle}) {
-    // const [todos, setTodos] = useState([])
+function Form({setToggle, funcTodo}) {
+
+    
+
+
     const [input, setInput] = useState({
         name: '',
         time: '',
@@ -24,11 +27,13 @@ function Form({setToggle}) {
         getTodos()
     }, [])
 
+
     function getTodos(){
         api.apiTodos()
         .then(todos => {
             dispatch(addTodo(todos))})
     }
+   
 
     function handleChange({target}) {
         const {name, value} = target
@@ -39,9 +44,7 @@ function Form({setToggle}) {
     function getInputValues(e) {
         e.preventDefault()
         const {name, time, date, description, completed} = input
-            api.apiTodoCreate({title : name, time, dayWeek : date, description, completed})
-            .then(({todo}) => setToggle(false))
-        console.log(input)
+        funcTodo({title : name, time, dayWeek : date, description, completed}, setToggle)
     }
     
     return <div className={styles.container}>

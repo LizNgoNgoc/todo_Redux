@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import {  useState } from 'react';
 import Form from '../../components/Form/Form';
 import Logout from '../../components/Logout/Logout';
+import { addTodoFunc } from '../../service/functions';
 
 function Dashboard () {
     
@@ -23,7 +24,7 @@ function Dashboard () {
         <div className={styles.todo_container}>
             <h3 className={styles.todo_header}>Tasks List</h3>
 
-            {toggle ? <Form setToggle={setToggle} /> : <Todos setToggle={setToggle} />}
+            {toggle ? <Form setToggle={setToggle} funcTodo={addTodoFunc} /> : <Todos setToggle={setToggle} />}
            
         </div>
     </section>

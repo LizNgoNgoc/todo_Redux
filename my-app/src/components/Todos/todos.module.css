@@ -10,7 +10,7 @@
     flex-direction: column;
     gap: 21px;
     overflow: scroll;
-    height: 170px;
+    height: 100%;
 }
 
 .inputs_container::-webkit-scrollbar{
@@ -63,6 +63,7 @@
     background-image: url(/public/images/plus-circle.png);
 }
 
+
 .inputs_text {
     color: rgba(0, 0, 0, 0.75);
     font-family: Poppins;
@@ -72,4 +73,6 @@
     line-height: 115.688%; 
     letter-spacing: 0.72px;
 }
+
+
 

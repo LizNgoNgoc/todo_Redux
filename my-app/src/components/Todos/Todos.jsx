@@ -1,4 +1,4 @@
-import styles from './todo.module.css'
+import styles from './todos.module.css'
 import { useEffect, useState } from 'react';
 import api from '../../service/api';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,7 +7,6 @@ import Todo from '../Todo/Todo';
 
 function Todos({setToggle}) {
 
-   
 
     const todos = useSelector((state) => state.todoSlice.todos)
     const dispatch = useDispatch()
@@ -16,7 +15,6 @@ function Todos({setToggle}) {
             .then(todos => {
                 dispatch(addTodo(todos))})
     }, [])
-
     return <section className={styles.todo_area}>
         <div className={styles.check_container}>
             <div className={styles.tasks_cont}>
@@ -25,7 +23,7 @@ function Todos({setToggle}) {
             </div>
             <div className={styles.inputs_container}>
                 {todos.map(todo => {
-                    return <Todo key={todo._id} todo={todo} />
+                    return <Todo key={todo._id} setToggle={setToggle} todo={todo}/>
                 })}
             </div>
         </div>
