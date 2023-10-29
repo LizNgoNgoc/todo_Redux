@@ -18,7 +18,7 @@ export default function Todo({todo, setToggle}) {
     useEffect(() => { //*
         api.apiTodos() //*
             .then(editTask => { //*
-                dispatch(sendTodoId(editForm)) //*
+                dispatch(sendTodoId(editForm)) //* 
             }) // *
     },[])//*
 
