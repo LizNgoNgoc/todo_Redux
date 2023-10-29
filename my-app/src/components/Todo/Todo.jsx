@@ -1,6 +1,10 @@
 import styles from './todo.module.css';
 import api from '../../service/api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { formSlice } from '../../redux/slices/Form'; //*
+import { useDispatch, useSelector } from 'react-redux'; //*
+import { editTask } from '../../redux/slices/Todo'; //*
+import { sendTodoId } from '../../redux/slices/Form'; //*
 
 
 
@@ -8,6 +12,16 @@ export default function Todo({todo, setToggle}) {
 
     const [task, setTask] = useState(todo)
     const [click, setClick] = useState(false)
+
+    const editForm = useSelector((state) => {state.formSlice.todo._id}) //*
+    const dispatch = useDispatch() //*
+    useEffect(() => { //*
+        api.apiTodos() //*
+            .then(editTask => { //*
+                dispatch(sendTodoId(editForm)) //*
+            }) // *
+    },[])//*
+
 
     const onCheckClick = (e) => {
         const checked = e.target.checked
@@ -25,7 +39,7 @@ export default function Todo({todo, setToggle}) {
         <div className={`${styles.description} ${click ? '' : styles.none }`}>
             <p className={styles.inputs_text}>{`Description: ${todo.description}`}</p>
         </div>
-        <button onClick={() => setToggle(true)} className={styles.editBtn}>edit</button>
+        <button onClick={() => setToggle(true)} className={styles.editBtn}>Edit</button>
     </div>  
 }
 
