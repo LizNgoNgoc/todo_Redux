@@ -13,7 +13,7 @@ export const formSlice = createSlice({
     initialState,
     reducers: {
         sendTodoId: (state, action) => {
-            return state = {...initialState, editTask: action._id}
+            return state = {...initialState, editTask: action.payload}
         }
     }
 })

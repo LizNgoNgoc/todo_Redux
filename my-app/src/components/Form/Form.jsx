@@ -2,22 +2,23 @@ import styles from './form.module.css'
 import { useEffect, useState } from 'react'
 import api from '../../service/api'
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo } from '../../redux/slices/Todo';
+import { addTodo, editTask } from '../../redux/slices/Todo';
 
 
 
 
-function Form({setToggle, funcTodo}) {
+function Form({setToggle}) {
 
+    const formData = useSelector(state => state.formSlice.editTask)
     
 
 
     const [input, setInput] = useState({
-        name: '',
-        time: '',
-        date: '',
-        description: '',
-        completed: false,
+        name: formData.title || '',
+        time: formData.time || '',
+        date: formData.dayWeek || '',
+        description: formData.description || '',
+        completed: formData.completed ||  false,
     })
 
 
@@ -44,8 +45,16 @@ function Form({setToggle, funcTodo}) {
     function getInputValues(e) {
         e.preventDefault()
         const {name, time, date, description, completed} = input
-        funcTodo({title : name, time, dayWeek : date, description, completed}, setToggle)
+        !formData._id 
+            ? api.apiTodoUpdate({title : name, time, dayWeek : date, description, completed})
+                .then(() => setToggle(false))
+            : dispatch(editTask({title : name, time, dayWeek : date, description, completed, _id : formData._id}))
+            // : api.apiTodoCreate({title : name, time, dayWeek : date, description, completed})
+            //     .then(() => setToggle(false)) 
     }
+
+
+
     
     return <div className={styles.container}>
         <button className={styles.btn_task} onClick={() => {setToggle(false)}}></button>
@@ -54,7 +63,9 @@ function Form({setToggle, funcTodo}) {
             <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={styles.inp}/>
             <input type="date" name='date' value={input.date} placeholder="Day" onChange={handleChange} className={styles.inp}/>
             <input type="text" name='description' value={input.description} placeholder="Description" onChange={handleChange} className={styles.inp}/>
-            <button className={styles.create_btn}>Create</button>
+            {formData._id 
+                ? <button className={styles.create_btn}>Edit</button> 
+                : <button className={styles.create_btn}>Create</button>}
         </form>
     </div>
    

@@ -3,6 +3,8 @@
 .check_container {
     padding: 15px;
     position: relative;
+    height: 280px;
+    overflow-y: scroll;
 }
 
 .inputs_container {

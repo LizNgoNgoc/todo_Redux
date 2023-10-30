@@ -12,7 +12,10 @@ export const todoSlice = createSlice({
             state.todos = action.payload
         },
         editTask: (state, action) => {
-           
+            const _id = action.payload._id
+           return {...state, todos : state.todos.map(item => {
+            return _id === item._id ? action.payload : item
+           })}
         }
     },
 })

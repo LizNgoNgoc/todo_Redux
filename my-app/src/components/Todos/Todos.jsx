@@ -4,6 +4,7 @@ import api from '../../service/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo } from '../../redux/slices/Todo';
 import Todo from '../Todo/Todo';
+import { sendTodoId } from '../../redux/slices/Form';
 
 function Todos({setToggle}) {
 
@@ -19,7 +20,9 @@ function Todos({setToggle}) {
         <div className={styles.check_container}>
             <div className={styles.tasks_cont}>
                 <p className={styles.tasks_txt}>Tasks List</p>
-                <button className={styles.btn_task} onClick={() => setToggle(true)}></button>
+                <button className={styles.btn_task} onClick={() => {
+                    dispatch(sendTodoId({}))
+                    setToggle(true)}}></button>
             </div>
             <div className={styles.inputs_container}>
                 {todos.map(todo => {

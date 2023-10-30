@@ -13,16 +13,8 @@ export default function Todo({todo, setToggle}) {
     const [task, setTask] = useState(todo)
     const [click, setClick] = useState(false)
 
-    const editForm = useSelector((state) => {state.formSlice.todo._id}) //*
     const dispatch = useDispatch() //*
-    useEffect(() => { //*
-        api.apiTodos() //*
-            .then(editTask => { //*
-                dispatch(sendTodoId(editForm)) //* 
-            }) // *
-    },[])//*
-
-
+   
     const onCheckClick = (e) => {
         const checked = e.target.checked
         setTask({...task, completed : checked})
@@ -39,7 +31,10 @@ export default function Todo({todo, setToggle}) {
         <div className={`${styles.description} ${click ? '' : styles.none }`}>
             <p className={styles.inputs_text}>{`Description: ${todo.description}`}</p>
         </div>
-        <button onClick={() => setToggle(true)} className={styles.editBtn}>Edit</button>
+        <button onClick={() => {
+            dispatch(sendTodoId(todo))
+            setToggle(true)
+        }} className={styles.editBtn}>Edit</button>
     </div>  
 }
 
