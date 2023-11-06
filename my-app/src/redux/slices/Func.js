@@ -1,17 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    click: false,
-
+    click: false
 }
 
 export const funcSlice = createSlice({
     name: 'click',
     initialState,
     reducers: {
-        checkClick: (state, action) => {
-            state.task = action.payload
-        }
+        checkClick: (state) => {
+           return {...state, click : !state.click}
+        },
     }
 })
 

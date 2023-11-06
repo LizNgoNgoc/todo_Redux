@@ -4,9 +4,11 @@ import registrationSlice from "./slices/Registration";
 import todoSlice from "./slices/Todo";
 import userSlice  from "./slices/User";
 import formSlice from "./slices/Form";
+import funcSlice from "./slices/Func";
 
 export const store = configureStore ({
     reducer : {
+        funcSlice,
         // GetDate,
         todoSlice,
         userSlice,
