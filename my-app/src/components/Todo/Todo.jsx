@@ -1,6 +1,5 @@
 import styles from './todo.module.css';
 import api from '../../service/api';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; //*
 import { sendTodoId } from '../../redux/slices/Form'; //*
 import { checkClick } from '../../redux/slices/Func';
