@@ -10,9 +10,6 @@ import { addTodo, editTask } from '../../redux/slices/Todo';
 function Form({setToggle}) {
 
     const formData = useSelector(state => state.formSlice.editTask)
-    
-
-
     const [input, setInput] = useState({
         name: formData.title || '',
         time: formData.time || '',
@@ -20,19 +17,16 @@ function Form({setToggle}) {
         description: formData.description || '',
         completed: formData.completed ||  false,
     })
-
+    console.log(formData)
 
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        getTodos()
-    }, [])
+    useEffect( getTodos, [])
 
 
     function getTodos(){
         api.apiTodos()
-        .then(todos => {
-            dispatch(addTodo(todos))})
+            .then(todos => dispatch(addTodo(todos)))
     }
    
 
@@ -46,11 +40,10 @@ function Form({setToggle}) {
         e.preventDefault()
         const {name, time, date, description, completed} = input
         !formData._id 
-            ? api.apiTodoUpdate({title : name, time, dayWeek : date, description, completed})
+            ? api.apiTodoCreate({title : name, time, dayWeek : date, description, completed})
                 .then(() => setToggle(false))
-            : dispatch(editTask({title : name, time, dayWeek : date, description, completed, _id : formData._id}))
-            // : api.apiTodoCreate({title : name, time, dayWeek : date, description, completed})
-            //     .then(() => setToggle(false)) 
+            : api.apiUpdateTodo({title : name, time, dayWeek : date, description, completed, _id : formData._id})
+                .then(task => dispatch(editTask(task)))
     }
 
 

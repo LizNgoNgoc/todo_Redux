@@ -2,14 +2,15 @@ import styles from './todo.module.css';
 import api from '../../service/api';
 import { useDispatch, useSelector } from 'react-redux'; //*
 import { sendTodoId } from '../../redux/slices/Form'; //*
-import { checkClick } from '../../redux/slices/Func';
 import { completedTask, editTask, deleteTodo } from '../../redux/slices/Todo';
+import { useState } from 'react';
 
 
 
 export default function Todo({todo, setToggle}) {
 
-    const view = useSelector(state => state.funcSlice.click)
+
+    const [viewState, setViewState] = useState(false)
 
     const dispatch = useDispatch()
    
@@ -20,22 +21,31 @@ export default function Todo({todo, setToggle}) {
             .then((data) => dispatch(editTask(data)))
     }
 
+    function editBtnAction () {
+        dispatch(sendTodoId(todo))
+        setToggle(true)
+    }
+
+    function deleteTask() {
+        dispatch(deleteTodo(todo._id))
+        api.apiDeleteTodo(todo._id)
+    }
+
     return <div className={styles.label_cont}>
         <input type="checkbox" checked={todo.completed} className={styles.inputs_text} onChange={onCheckClick}/>
-        <button className={styles.btn}  onClick={()=> dispatch(checkClick())}>View</button>
-        <button className={styles.btn_del} 
-            onClick={()=> {
-                dispatch(deleteTodo(todo._id))
-            }}></button>
+
+        <button className={styles.btn} onClick={()=> setViewState(!viewState)}>View</button>
+
+        <button className={styles.btn_del}onClick={deleteTask}></button>
+
         <label className={styles.inputs_text}>{todo.title}</label>
         <p className={styles.inputs_text}>{`Date: ${todo.dayWeek}`}</p>
-        <div className={`${styles.description} ${view ? '' : styles.none }`}>
+        <div className={`${styles.description} ${viewState ? '' : styles.none }`}>
             <p className={styles.inputs_text}>{`Description: ${todo.description}`}</p>
         </div>
-        <button onClick={() => {
-            dispatch(sendTodoId(todo))
-            setToggle(true)
-        }} className={styles.editBtn}>Edit</button>
+
+        <button onClick={editBtnAction} className={styles.editBtn}>Edit</button>
+
     </div>  
 }
 

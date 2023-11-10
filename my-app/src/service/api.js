@@ -2,9 +2,23 @@ class Api {
     constructor() {
         this.url = 'https://testapiservisefortesting.onrender.com/'
     }
-
+    apiDeleteTodo(_id){
+        return fetch(this.url + `todo/delete?id=${_id}`, {
+            headers : {
+                authorization : localStorage.getItem('token')
+            },
+            method : 'DELETE',
+        })
+    }
     apiUpdateTodo(body) {
-
+        return fetch(this.url + `todo/patch?id=${body._id}`, {
+            headers : {
+                'Content-Type' : 'application/json',
+                authorization : localStorage.getItem('token')
+            },
+            method : 'PATCH',
+            body : JSON.stringify(body)
+        }).then(responce => responce.json())
     }
 
     apiLogin(body){
