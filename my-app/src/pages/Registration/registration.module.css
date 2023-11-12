@@ -124,3 +124,14 @@
 .disabled{
     background-color: gray;
 }
+
+@media (min-width: 768px) {
+    .registration {
+        width: 750px;
+        height: 812px;
+    }
+
+    .inp {
+        width: 695px;
+    }
+  }

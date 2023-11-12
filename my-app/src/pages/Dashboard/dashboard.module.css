@@ -82,6 +82,21 @@
     gap: 21px;
 }
 
+@media (min-width: 768px) {
+    .dashboard {
+        width: 750px;
+        height: 812px;
+    }
+
+    .header {
+        margin-bottom: 0;
+    }
+
+    .img {
+        margin-top: 175px;
+    }
+  }
+
 
 
 

@@ -34,3 +34,31 @@
     transform: rotate(135deg);
 }
 
+.create_btn {
+    color: rgba(0, 0, 0, 0.75);
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 115.688%; 
+    letter-spacing: 0.72px;
+    border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 710px;
+        height: 334px;
+    }
+
+    .inp {
+        width: 667px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .create_btn {
+        font-size: 16px;
+    }
+  }
+

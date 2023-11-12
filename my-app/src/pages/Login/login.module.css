@@ -110,3 +110,11 @@
 .show {
     display: block;
 }
+
+@media (min-width: 768px) {
+    .login {
+        width: 750px;
+        height: 812px;
+    }
+    
+  }
