@@ -12,10 +12,10 @@ function Dashboard () {
     const user = useSelector(state => state.userSlice)
     
     return <section className={styles.dashboard}>
-        <Logout />
         <div className={styles.header_container}>
             <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
+            <Logout />
         </div>
         <div className={styles.date_container}>
             <p className={styles.txt}>Good Afternoon</p>

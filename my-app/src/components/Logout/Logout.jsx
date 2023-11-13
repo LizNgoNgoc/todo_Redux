@@ -29,9 +29,9 @@ function Logout() {
         })
     },[])
 
-    return <div className={styles.logout_cont}>
+    return <>
                 <button className={styles.logout} onClick={logout}>Logout</button>
-            </div>
+            </>
 }
 
 export default Logout

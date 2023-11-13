@@ -3,10 +3,10 @@
 .login {
     width: 375px;
     height: 812px;
-    background-image: url(/public/images/splash.png);
-    background-size: cover;
+    background-image: url(/public/images/dashboard.png);
     background-repeat: no-repeat;
     padding: 0 25px;
+    background-color: #F5F5F5;
 }
 
 .container {

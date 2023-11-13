@@ -3,11 +3,11 @@
 .registration {
     width: 375px;
     height: 812px;
-    background-image: url(/public/images/splash.png);
-    background-size: cover;
+    background-image: url(/public/images/dashboard.png);
     background-repeat: no-repeat;
     padding: 237px 25px 0;
     box-sizing: border-box;
+    background-color: #F5F5F5;
 }
 
 .container {
