@@ -40,12 +40,13 @@ export default function Todo({todo, setToggle}) {
         <label className={styles.inputs_text}>{`Task: ${todo.title}`}</label>
         <p className={styles.inputs_text}>{`Date: ${todo.dayWeek}`}</p>
         <div className={`${styles.description} ${viewState ? '' : styles.none }`}>
-            <p className={styles.inputs_text}>{`Description: ${todo.description}`}</p>
+            <textarea className={styles.inputs_text}>{`Description: ${todo.description}`}</textarea>
         </div>
+        <div className={styles.container_btn}>
+            <button className={styles.btn} onClick={()=> setViewState(!viewState)}>View</button>
+            <button onClick={editBtnAction} className={styles.editBtn}>Edit</button>
 
-        <button className={styles.btn} onClick={()=> setViewState(!viewState)}>View</button>
-        <button onClick={editBtnAction} className={styles.editBtn}>Edit</button>
-
+        </div>
     </div>  
 }
 

@@ -85,3 +85,8 @@
     letter-spacing: 0.72px;
     border-radius: 4px;
 }
+
+.container_btn {
+    display: flex;
+    justify-content: space-between;
+}
