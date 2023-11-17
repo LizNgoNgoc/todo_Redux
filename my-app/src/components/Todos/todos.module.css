@@ -3,7 +3,7 @@
 .check_container {
     padding: 15px;
     position: relative;
-    height: 315px;
+    height: 430px;
    
 }
 
@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     gap: 21px;
-    height: 250px;
+    height: 360px;
     overflow-y: scroll;
     padding: 5px;
 }
@@ -25,9 +25,8 @@
 }
 
 .todo_area {
-    padding: 10px 15px;
     width: 345px;
-    height: 334px;
+    height: 430px;
     background-color: white;
     border-radius: 24px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
@@ -37,7 +36,7 @@
 .tasks_cont {
     justify-content: space-between;
     display: flex;
-    margin-bottom: 29px;
+    margin-bottom: 20px;
 }
 
 .label_cont {
@@ -48,7 +47,7 @@
 .tasks_txt {
     color: rgba(0, 0, 0, 0.75);
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 115.688%; 
@@ -82,7 +81,7 @@
 @media (min-width: 768px) {
     .todo_area {
         width: 710px;
-        height: 334px;
+        height: 415px;
         box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
     }
 

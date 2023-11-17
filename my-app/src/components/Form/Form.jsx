@@ -51,11 +51,14 @@ function Form({setToggle}) {
     
     return <div className={styles.container}>
         <button className={styles.btn_task} onClick={() => {setToggle(false)}}></button>
-        <form onSubmit={getInputValues}>
+        {formData._id 
+            ? <p className={styles.title}>Edit task</p>
+            : <p className={styles.title}>Create task</p>}
+        <form onSubmit={getInputValues} className={styles.form}>
             <input type="text" name='name' value={input.name} placeholder="Header" onChange={handleChange} className={styles.inp}/>
             <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={styles.inp}/>
             <input type="date" name='date' value={input.date} placeholder="Day" onChange={handleChange} className={styles.inp}/>
-            <input type="text" name='description' value={input.description} placeholder="Description" onChange={handleChange} className={styles.inp}/>
+            <textarea type="text" name='description'  placeholder="Description" onChange={handleChange} className={styles.textarea}>{input.description}</textarea>
             {formData._id 
                 ? <button className={styles.create_btn}>Edit</button> 
                 : <button className={styles.create_btn}>Create</button>}

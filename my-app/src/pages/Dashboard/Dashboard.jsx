@@ -22,10 +22,7 @@ function Dashboard () {
             <p className={styles.date_num}>{}</p>
         </div>
         <div className={styles.todo_container}>
-            <h3 className={styles.todo_header}>Tasks List</h3>
-
             {toggle ? <Form setToggle={setToggle}/> : <Todos setToggle={setToggle} />}
-           
         </div>
     </section>
 }
