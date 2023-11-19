@@ -15,10 +15,10 @@ function Dashboard () {
     
     return <section className={styles.dashboard}>
         <div className={styles.header_container}>
-            <ModalWindow active={modalActive} setActive={setModalActive}/>
+            {/* <ModalWindow active={modalActive} setActive={setModalActive}/> */}
             <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
-            <button className={styles.modal} onClick={() => setModalActive(true)}>Modal</button>
+            <button className={styles.modal} onClick={() => setModalActive(false)}>Modal</button>
             <Logout />
         </div>
         <div className={styles.date_container}>
