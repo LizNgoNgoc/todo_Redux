@@ -13,11 +13,7 @@ function UploadAvatar() {
         setPreview(view)
     }
 
-    useEffect(() => {
 
-    }, [])
-
-    
     return<div>
         <Avatar
             width={400}
