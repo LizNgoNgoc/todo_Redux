@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import {  useState } from 'react';
 import Form from '../../components/Form/Form';
 import Logout from '../../components/Logout/Logout';
+import Modal from '../../components/Modal/Modal';
 
 
 function Dashboard () {
@@ -15,6 +16,7 @@ function Dashboard () {
         <div className={styles.header_container}>
             <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
+            <Modal />
             <Logout />
         </div>
         <div className={styles.date_container}>
