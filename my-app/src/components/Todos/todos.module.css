@@ -88,6 +88,10 @@
     .inputs_container{
         padding: 15px 20px;
     }
+
+    .inputs_container {
+        height: 335px;
+    }
   }
 
 
