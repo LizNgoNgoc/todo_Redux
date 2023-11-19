@@ -5,6 +5,7 @@ import {  useState } from 'react';
 import Form from '../../components/Form/Form';
 import Logout from '../../components/Logout/Logout';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
+import UploadAvatar from '../../components/Avatar/UploadAvatar';
 
 
 function Dashboard () {
@@ -16,7 +17,8 @@ function Dashboard () {
     return <section className={styles.dashboard}>
         <div className={styles.header_container}>
             {/* <ModalWindow active={modalActive} setActive={setModalActive}/> */}
-            <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
+            {/* <img src="./images/Ellipse 11.png" className={styles.img} alt="img" /> */}
+            <UploadAvatar />
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
             <button className={styles.modal} onClick={() => setModalActive(false)}>Modal</button>
             <Logout />
