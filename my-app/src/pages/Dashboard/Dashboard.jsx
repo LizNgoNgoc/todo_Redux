@@ -4,19 +4,21 @@ import { useSelector } from 'react-redux';
 import {  useState } from 'react';
 import Form from '../../components/Form/Form';
 import Logout from '../../components/Logout/Logout';
-import Modal from '../../components/Modal/Modal';
+import ModalWindow from '../../components/ModalWindow/ModalWindow';
 
 
 function Dashboard () {
+    const[modalActive, setModalActive] = useState(true)
     
     const [toggle, setToggle] = useState(false)
     const user = useSelector(state => state.userSlice)
     
     return <section className={styles.dashboard}>
         <div className={styles.header_container}>
+            <ModalWindow active={modalActive} setActive={setModalActive}/>
             <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
-            <Modal />
+            <button className={styles.modal} onClick={() => setModalActive(true)}>Modal</button>
             <Logout />
         </div>
         <div className={styles.date_container}>
