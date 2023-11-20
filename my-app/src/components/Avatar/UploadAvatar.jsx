@@ -16,8 +16,8 @@ function UploadAvatar() {
 
     return<div>
         <Avatar
-            width={400}
-            height={300}
+            width={200}
+            height={200}
             onCrop={onCrop}
             onClose={onClose}
             src={src}
