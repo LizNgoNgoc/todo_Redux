@@ -58,7 +58,7 @@ function Form({setToggle}) {
             <input type="text" name='name' value={input.name} placeholder="Header" onChange={handleChange} className={styles.inp}/>
             <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={styles.inp}/>
             <input type="date" name='date' value={input.date} placeholder="Day" onChange={handleChange} className={styles.inp}/>
-            <textarea type="text" name='description'  placeholder="Description" onChange={handleChange} className={styles.textarea}>{input.description}</textarea>
+            <textarea type="text" name='description'  placeholder="Description" onChange={handleChange} value={input.description} className={styles.textarea}/>
             {formData._id 
                 ? <button className={styles.create_btn}>Edit</button> 
                 : <button className={styles.create_btn}>Create</button>}

@@ -14,8 +14,12 @@ export const userSlice = createSlice ({
         userLogout: (state) => {
             localStorage.clear()
             return state = {...initialState, name : ''}
+        },
+        patchName: (state, action) => {
+            console.log(action.payload);
+            return state = {...initialState, name: action.payload}
         }
     }
 })
-export const {addUser, userLogout} = userSlice.actions
+export const {addUser, userLogout, patchName} = userSlice.actions
 export default userSlice.reducer

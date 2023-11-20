@@ -55,6 +55,7 @@
     line-height: 115.688%; 
     letter-spacing: 0.72px;
     border-radius: 4px;
+    overflow: hidden;
 }
 
 .none {
