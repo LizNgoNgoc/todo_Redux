@@ -24,10 +24,7 @@
 .img {
     margin-top: 90px;
     position: relative;
-}
 
-.filter{
-    filter: brightness(30%);
 }
 
 .edit {
@@ -46,6 +43,7 @@
     margin-bottom: 60px;
     background-color: rgba(0, 0, 0, 0.417);
     border-radius: 100px;
+    padding: 71px 18px 11px 83px;
 }
 
 

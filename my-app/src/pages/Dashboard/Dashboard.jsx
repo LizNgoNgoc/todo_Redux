@@ -19,7 +19,7 @@ function Dashboard () {
             {modalActive && <ModalWindow setActive={setModalActive}/>}   
             <img src="./images/Ellipse 11.png" className={styles.img} alt="img" 
                 onMouseEnter={() => setHovered(true)} 
-                // onMouseLeave={() => setHovered(false)}
+                onMouseLeave={() => setHovered(false)}
                 />
             {hovered && <div className={styles.edit}>Edit</div>}
             {/* <UploadAvatar /> */}
