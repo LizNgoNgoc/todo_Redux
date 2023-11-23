@@ -17,7 +17,10 @@ function Dashboard () {
     return <section className={styles.dashboard}>
         <div className={styles.header_container}>
             {modalActive && <ModalWindow setActive={setModalActive}/>}   
-            <img src="./images/Ellipse 11.png" className={styles.img} alt="img" onClick={() => setHovered(true)}/>
+            <img src="./images/Ellipse 11.png" className={styles.img} alt="img" 
+                onMouseEnter={() => setHovered(true)} 
+                // onMouseLeave={() => setHovered(false)}
+                />
             {hovered && <div className={styles.edit}>Edit</div>}
             {/* <UploadAvatar /> */}
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>

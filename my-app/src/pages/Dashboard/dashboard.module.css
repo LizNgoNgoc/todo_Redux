@@ -32,8 +32,10 @@
 
 .edit {
     position: absolute;
-    top: 170px;
-    right: 315px;
+    width: 142px;
+    height: 142px;
+    top: 108px;
+    right: 290px;
     color: #FFF;
     font-family: Poppins;
     font-size: 18px;
@@ -42,6 +44,8 @@
     line-height: 115.688%; 
     letter-spacing: 1.08px;
     margin-bottom: 60px;
+    background-color: rgba(0, 0, 0, 0.417);
+    border-radius: 100px;
 }
 
 
