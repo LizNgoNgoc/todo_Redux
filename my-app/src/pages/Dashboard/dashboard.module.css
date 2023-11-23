@@ -23,7 +23,27 @@
 
 .img {
     margin-top: 90px;
+    position: relative;
 }
+
+.filter{
+    filter: brightness(30%);
+}
+
+.edit {
+    position: absolute;
+    top: 170px;
+    right: 315px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 115.688%; 
+    letter-spacing: 1.08px;
+    margin-bottom: 60px;
+}
+
 
 .header {
     color: #FFF;

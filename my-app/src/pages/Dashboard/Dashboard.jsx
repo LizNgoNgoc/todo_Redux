@@ -10,14 +10,15 @@ import UploadAvatar from '../../components/Avatar/UploadAvatar';
 
 function Dashboard () {
     const[modalActive, setModalActive] = useState(false)
-    
+    const [hovered, setHovered] = useState(false)
     const [toggle, setToggle] = useState(false)
     const user = useSelector(state => state.userSlice)
     
     return <section className={styles.dashboard}>
         <div className={styles.header_container}>
             {modalActive && <ModalWindow setActive={setModalActive}/>}   
-            <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
+            <img src="./images/Ellipse 11.png" className={styles.img} alt="img" onClick={() => setHovered(true)}/>
+            {hovered && <div className={styles.edit}>Edit</div>}
             {/* <UploadAvatar /> */}
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
             <button className={styles.modal} onClick={() => setModalActive(true)}>Modal</button>
