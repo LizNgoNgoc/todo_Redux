@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    name: ''
+    name: '',
+    avatar : ''
 }
 
 export const userSlice = createSlice ({
@@ -17,7 +18,7 @@ export const userSlice = createSlice ({
         },
         patchName: (state, action) => {
             console.log(action.payload);
-            return state = {...initialState, name: action.payload}
+            return state = {...initialState, ...action.payload}
         }
     }
 })

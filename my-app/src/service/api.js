@@ -22,6 +22,19 @@ class Api {
     }
 
     apiUpdateName(body) {
+        console.log(body);
+        return fetch(this.url + `user/me`, {
+            headers : {
+                'Content-Type' : 'application/json',
+                authorization : localStorage.getItem('token')
+            },
+            method : 'PATCH',
+            body : JSON.stringify(body)
+        }).then(responce => responce.json())
+    }
+
+    apiUpdateAvatar(body){
+        console.log(body);
         return fetch(this.url + `user/me`, {
             headers : {
                 'Content-Type' : 'application/json',

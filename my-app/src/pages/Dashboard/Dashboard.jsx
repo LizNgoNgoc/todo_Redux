@@ -6,25 +6,34 @@ import Form from '../../components/Form/Form';
 import Logout from '../../components/Logout/Logout';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
 import UploadAvatar from '../../components/Avatar/UploadAvatar';
+import api from '../../service/api';
 
 
 function Dashboard () {
     const[modalActive, setModalActive] = useState(false)
-    const [hovered, setHovered] = useState(false)
     const [toggle, setToggle] = useState(false)
+    const [settingModal, setSettingModal] = useState({
+        str : '',
+        function : null
+    })
     const user = useSelector(state => state.userSlice)
     
     return <section className={styles.dashboard}>
         <div className={styles.header_container}>
-            {modalActive && <ModalWindow setActive={setModalActive}/>}   
-            <img src="./images/Ellipse 11.png" className={styles.img} alt="img" 
-                onMouseEnter={() => setHovered(true)} 
-                onMouseLeave={() => setHovered(false)}
-                />
-            {hovered && <div className={styles.edit}>Edit</div>}
+            {modalActive && <ModalWindow setActive={setModalActive} setting={settingModal}/>}
+            <div className={styles.avatar}>
+                <div className={styles.edit} onClick={() => {
+                    setModalActive(true); 
+                    setSettingModal({str : 'Edit your avatar link', function : api.apiUpdateAvatar, attr: 'avatar',
+                })}}>Edit</div>
+                <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
+            </div>   
             {/* <UploadAvatar /> */}
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
-            <button className={styles.modal} onClick={() => setModalActive(true)}>Modal</button>
+            <button className={styles.modal} onClick={() => {
+                setModalActive(true); 
+                setSettingModal({str : 'Edit your name', function :  api.apiUpdateName, attr : 'name', 
+            })}}>Modal</button>
             <Logout />
         </div>
         <div className={styles.date_container}>

@@ -24,15 +24,15 @@
 .img {
     margin-top: 90px;
     position: relative;
-
+    z-index: 999;
 }
 
 .edit {
-    position: absolute;
-    width: 142px;
-    height: 142px;
-    top: 108px;
-    right: 290px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
     color: #FFF;
     font-family: Poppins;
     font-size: 18px;
@@ -40,10 +40,18 @@
     font-weight: 600;
     line-height: 115.688%; 
     letter-spacing: 1.08px;
-    margin-bottom: 60px;
     background-color: rgba(0, 0, 0, 0.417);
-    border-radius: 100px;
-    padding: 71px 18px 11px 83px;
+    border-radius: 100%;
+    margin-top: 90px;
+    position: absolute;
+    z-index: 998;
+    opacity: 0;
+    transition: 0.5s;
+}
+.avatar:hover .edit{
+    opacity: 1;
+    display: flex;
+    z-index: 1000;
 }
 
 
