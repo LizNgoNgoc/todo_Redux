@@ -7,7 +7,9 @@ import Logout from '../../components/Logout/Logout';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
 import UploadAvatar from '../../components/Avatar/UploadAvatar';
 import api from '../../service/api';
-
+import Greeting from '../custom/Greeting';
+import Edit from '../custom/Edit';
+import ModalBtn from '../custom/ModalBtn';
 
 function Dashboard () {
     const[modalActive, setModalActive] = useState(false)
@@ -22,23 +24,14 @@ function Dashboard () {
         <div className={styles.header_container}>
             {modalActive && <ModalWindow setActive={setModalActive} setting={settingModal}/>}
             <div className={styles.avatar}>
-                <div className={styles.edit} onClick={() => {
-                    setModalActive(true); 
-                    setSettingModal({str : 'Edit your avatar link', function : api.apiUpdateAvatar.bind(api), attr: 'avatar',})}}>Edit</div>
-                <img src={user.avatar || './images/Ellipse 11.png'} className={styles.img} alt="img"/>
+               <Edit />
+                <img src={user.avatar || './images/972302.png'} className={styles.img} alt="img"/>
             </div>   
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
-            <button className={styles.modal} onClick={() => {
-                setModalActive(true); 
-                setSettingModal({str : 'Edit your name', function :  api.apiUpdateName.bind(api), attr : 'name'})}}>
-                <img src="./images/icons8-popup-50.png" alt="" />
-            </button>
+           <ModalBtn />
             <Logout />
         </div>
-        <div className={styles.date_container}>
-            <p className={styles.txt}>Good Afternoon</p>
-            <p className={styles.date_num}>{}</p>
-        </div>
+            <Greeting />
         <div className={styles.todo_container}>
             {toggle ? <Form setToggle={setToggle}/> : <Todos setToggle={setToggle} />}
         </div>
