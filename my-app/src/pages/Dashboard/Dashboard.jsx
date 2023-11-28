@@ -1,7 +1,7 @@
 import styles from './dashboard.module.css';
 import Todos from '../../components/Todos/Todos';
 import { useSelector } from 'react-redux';
-import {  useState } from 'react';
+import {  useEffect, useState } from 'react';
 import Form from '../../components/Form/Form';
 import Logout from '../../components/Logout/Logout';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
@@ -17,23 +17,20 @@ function Dashboard () {
         function : null
     })
     const user = useSelector(state => state.userSlice)
-    
+    console.log(user);
     return <section className={styles.dashboard}>
         <div className={styles.header_container}>
             {modalActive && <ModalWindow setActive={setModalActive} setting={settingModal}/>}
             <div className={styles.avatar}>
                 <div className={styles.edit} onClick={() => {
                     setModalActive(true); 
-                    setSettingModal({str : 'Edit your avatar link', function : api.apiUpdateAvatar, attr: 'avatar',
-                })}}>Edit</div>
-                <img src="./images/Ellipse 11.png" className={styles.img} alt="img" />
+                    setSettingModal({str : 'Edit your avatar link', function : api.apiUpdateAvatar.bind(api), attr: 'avatar',})}}>Edit</div>
+                <img src={user.avatar || './images/Ellipse 11.png'} className={styles.img} alt="img"/>
             </div>   
-            {/* <UploadAvatar /> */}
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
             <button className={styles.modal} onClick={() => {
                 setModalActive(true); 
-                setSettingModal({str : 'Edit your name', function :  api.apiUpdateName, attr : 'name', 
-            })}}>
+                setSettingModal({str : 'Edit your name', function :  api.apiUpdateName.bind(api), attr : 'name'})}}>
                 <img src="./images/icons8-popup-50.png" alt="" />
             </button>
             <Logout />

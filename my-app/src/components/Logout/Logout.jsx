@@ -23,10 +23,7 @@ function Logout() {
 
     useEffect(()=>{
         api.apiForm()
-        .then((data)=>{
-            dispatch(addUser(data))
-            console.log(user)
-        })
+        .then((data)=>dispatch(addUser(data)))
     },[])
 
     return <>

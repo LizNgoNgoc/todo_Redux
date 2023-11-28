@@ -17,7 +17,6 @@ export const userSlice = createSlice ({
             return state = {...initialState, name : ''}
         },
         patchName: (state, action) => {
-            console.log(action.payload);
             return state = {...initialState, ...action.payload}
         }
     }

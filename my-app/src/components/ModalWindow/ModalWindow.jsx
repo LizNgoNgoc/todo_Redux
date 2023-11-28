@@ -9,8 +9,7 @@ function ModalWindow({setActive, setting, attr}) {
     function getDataChanges(e){
         e.preventDefault()
         const form = e.target
-        const data = form.elements[0]
-        
+        const data = form.elements[0] 
         setting.function({[data.name] : data.value})
             .then((user) => {
                 dispatch(patchName(user))

@@ -22,7 +22,6 @@ class Api {
     }
 
     apiUpdateName(body) {
-        console.log(body);
         return fetch(this.url + `user/me`, {
             headers : {
                 'Content-Type' : 'application/json',
@@ -34,8 +33,7 @@ class Api {
     }
 
     apiUpdateAvatar(body){
-        console.log(body);
-        return fetch(this.url + `user/me`, {
+        return fetch(this.url + `user/avatar`, {
             headers : {
                 'Content-Type' : 'application/json',
                 authorization : localStorage.getItem('token')

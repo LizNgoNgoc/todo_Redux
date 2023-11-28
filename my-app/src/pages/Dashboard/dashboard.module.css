@@ -25,6 +25,7 @@
     margin-top: 90px;
     position: relative;
     z-index: 999;
+    border-radius: 50%;
 }
 
 .edit {
@@ -128,6 +129,8 @@
     position: absolute;
     top: 15px; 
     left: 15px;
+    background: transparent;
+    border: 0;
 }
 
 @media (min-width: 768px) {

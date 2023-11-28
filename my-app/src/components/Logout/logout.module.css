@@ -14,7 +14,10 @@
     letter-spacing: 0.72px;
     border-radius: 4px;
     position: absolute;
-    top: 15px; right: 15px;
+    top: 15px; 
+    right: 15px;
+    background: transparent;
+    border: 0;
 }
 
 @media (min-width: 768px) {
