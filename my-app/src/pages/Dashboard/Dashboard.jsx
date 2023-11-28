@@ -33,7 +33,9 @@ function Dashboard () {
             <button className={styles.modal} onClick={() => {
                 setModalActive(true); 
                 setSettingModal({str : 'Edit your name', function :  api.apiUpdateName, attr : 'name', 
-            })}}>Modal</button>
+            })}}>
+                <img src="./images/icons8-popup-50.png" alt="" />
+            </button>
             <Logout />
         </div>
         <div className={styles.date_container}>

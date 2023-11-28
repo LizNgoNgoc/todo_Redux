@@ -30,7 +30,9 @@ function Logout() {
     },[])
 
     return <>
-                <button className={styles.logout} onClick={logout}>Logout</button>
+                <button className={styles.logout} onClick={logout}>
+                    <img src="./images/icons8-off-50.png" alt="" />
+                </button>
             </>
 }
 
