@@ -10,20 +10,18 @@ function ModalBtn() {
         str : '',
         function : null
     })
-    
+    const modal = useSelector(state => state.modalName)
     const dispatch = useDispatch()
 
-    function getModal(e){
-        e.preventDefault()
-            .then((user) => {
-                dispatch(modalName(true))
-            })
-            .catch((err) => console.log(err))
-    } 
+    // function getModal(e){
+    //     e.preventDefault()
+    //         .then((modal) => {
+    //             dispatch(modalName(true))
+    //         })
+    // } 
 
-    return  <button className={styles.modal} onClick={() => {
-         
-        setSettingModal({str : 'Edit your name', function :  api.apiUpdateName.bind(api), attr : 'name'})}}>
+    return  <button className={styles.modal} onClick={getModal}
+    /* {setSettingModal({str : 'Edit your name', function :  api.apiUpdateName.bind(api), attr : 'name'})}*/>
         <img src="./images/icons8-popup-50.png" alt="" />
     </button>
 }
