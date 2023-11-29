@@ -1,18 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    click: false
+    click: false,
+    str : '',
+    function : null,
+    modal: {
+        type: ''
+    }
 }
 
 export const funcSlice = createSlice({
     name: 'click',
     initialState,
     reducers: {
-    modalName: (state, action) => {
-        return state = action.payload
+    showModal: (state, action) => {
+        return state.modal.type === action.payload
+    },
+    hideModal: (state) => {
+        return state.initialState;
     }
     }
 })
 
-export const {modalName} = funcSlice.actions
+export const {showModal} = funcSlice.actions
 export default funcSlice.reducer
