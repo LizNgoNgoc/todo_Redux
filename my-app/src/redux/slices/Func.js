@@ -8,9 +8,11 @@ export const funcSlice = createSlice({
     name: 'click',
     initialState,
     reducers: {
-    
+    modalName: (state, action) => {
+        return state = action.payload
+    }
     }
 })
 
-export const {} = funcSlice.actions
+export const {modalName} = funcSlice.actions
 export default funcSlice.reducer

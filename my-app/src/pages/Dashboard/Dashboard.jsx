@@ -29,7 +29,7 @@ function Dashboard () {
             </div>   
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
            <ModalBtn />
-            <Logout />
+           <Logout />
         </div>
             <Greeting />
         <div className={styles.todo_container}>
