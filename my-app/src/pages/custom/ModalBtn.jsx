@@ -1,5 +1,4 @@
 import styles from './custom.module.css'
-import { useState } from 'react';
 import api from '../../service/api';
 import { showModal } from '../../redux/slices/Func';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,12 +9,13 @@ function ModalBtn() {
     //     str : '',
     //     function : null
     // })
-    // const modal = useSelector(state => state.modalName)
+    const modal = useSelector(state => state.modalName)
     const dispatch = useDispatch()
 
     function getModal(e){
         e.preventDefault()
-            .then((click) => {dispatch(showModal())})
+        api.apiUpdateName(modal)
+            .then(() => {dispatch(showModal())})
     } 
 
     return  <button className={styles.modal} onClick={getModal}

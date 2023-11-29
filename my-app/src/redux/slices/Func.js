@@ -4,9 +4,6 @@ const initialState = {
     click: false,
     str : '',
     function : null,
-    modal: {
-        type: ''
-    }
 }
 
 export const funcSlice = createSlice({
@@ -14,7 +11,7 @@ export const funcSlice = createSlice({
     initialState,
     reducers: {
     showModal: (state, action) => {
-        return state.modal.type === action.payload
+        return state === action.payload
     },
     hideModal: (state) => {
         return state.initialState;
