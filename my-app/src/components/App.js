@@ -23,6 +23,8 @@ function App() {
         <Route path='/signIn' element={<Login />} />
         <Route path='/todos' element={<Dashboard />} />
       </Routes>
+
+      {/* Модальное окно сюда + пременить знание документации */}
   </section>
 }
 

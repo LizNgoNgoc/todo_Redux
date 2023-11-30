@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    click: false,
-    str : '',
-    function : null,
+    form : {
+        str : '',
+        function : null,
+        attr : ''
+    }
+    
 }
 
 export const funcSlice = createSlice({
@@ -11,10 +14,10 @@ export const funcSlice = createSlice({
     initialState,
     reducers: {
     showModal: (state, action) => {
-        return state === action.payload
+        return {...state, form : action.payload}
     },
     hideModal: (state) => {
-        return state.initialState;
+        return state
     }
     }
 })

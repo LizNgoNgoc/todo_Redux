@@ -14,6 +14,19 @@
     margin-bottom: 10px;
 }
 
+
+.img {
+    margin-top: 90px;
+    position: relative;
+    z-index: 999;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.avatar{
+ 
+}
+
 .date_num {
     color: rgba(0, 0, 0, 0.75);
     font-family: Poppins;
@@ -66,4 +79,12 @@
     left: 15px;
     background: transparent;
     border: 0;
+}
+
+@media (max-width : 768px) {
+    .img {
+        margin-top: 90px;
+        width: 150px;
+        height: 150px;
+    }
 }
