@@ -4,10 +4,11 @@ import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import ModalWindow from './ModalWindow/ModalWindow';
 
 function App() {
-
+  const [modalActive, setModalActive] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -25,6 +26,9 @@ function App() {
       </Routes>
 
       {/* Модальное окно сюда + пременить знание документации */}
+        <ModalWindow>
+          {modalActive && <ModalWindow setActive={setModalActive}/>}
+        </ModalWindow>
   </section>
 }
 

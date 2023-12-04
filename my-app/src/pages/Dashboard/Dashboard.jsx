@@ -8,15 +8,15 @@ import TodoContainer from '../../components/TodoContainer/TodoContainer';
 
 
 function Dashboard () {
-    const [modalActive, setModalActive] = useState(false)
+    //const [modalActive, setModalActive] = useState(false)
 
     // const user = useSelector(state => state.userSlice)
     return <section className={styles.dashboard}>
         <Header/>
         <Greeting/>
         <TodoContainer/>
-        {modalActive && <ModalWindow setActive={setModalActive}/>}
-        <ModalBtn setModalActive={setModalActive} />
+        {/* {modalActive && <ModalWindow setActive={setModalActive}/>}
+        <ModalBtn setModalActive={setModalActive} /> */}
     </section>
 }
 
