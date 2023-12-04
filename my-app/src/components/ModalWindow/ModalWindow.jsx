@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux'
 import { patchName } from '../../redux/slices/User'
 import { useSelector } from 'react-redux'
 import api from '../../service/api'
+import { setModalActiveFalse } from '../../redux/slices/Func'
 
-function ModalWindow({setActive}) {
-  
+function ModalWindow() {
+    
     const setting = useSelector(state => state.funcSlice.form)
     const dispatch = useDispatch()
 
@@ -21,12 +22,12 @@ function ModalWindow({setActive}) {
     const req = (promise) =>  {
         promise.then((user) => {
             dispatch(patchName(user))
-            setActive(false)
+            dispatch(setModalActiveFalse())
         })
         .catch((err) => console.log(err))
     }
     
-    return <div className={styles.modal} onClick={() => {setActive(false)}}>
+    return <div className={styles.modal} onClick={() => {dispatch(setModalActiveFalse())}}>
         <div className={styles.modal_content} onClick={e => e.stopPropagation()}>
             <h3 className={styles.title}>{setting.str}</h3>
             <form className={styles.form} onSubmit={getDataChanges}>

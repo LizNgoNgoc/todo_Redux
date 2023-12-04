@@ -1,17 +1,17 @@
 import styles from './custom.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { showModal } from '../redux/slices/Func'
+import { setModalActiveTrue } from '../redux/slices/Func'
 
 
-
-function Avatar({setModalActive}) {
+function Avatar() {
 
     const dispatch = useDispatch()
 
     const user = useSelector(state => state.userSlice)
 
     function getModal(e){
-        setModalActive(true)
+        dispatch(setModalActiveTrue())
         dispatch(showModal({str : 'Edit your avatar link', attr : 'avatar'}))
     } 
   

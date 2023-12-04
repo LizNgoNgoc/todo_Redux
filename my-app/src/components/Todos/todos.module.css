@@ -3,7 +3,7 @@
 .check_container {
     padding: 15px;
     position: relative;
-    height: 430px;
+    height: 370px;
    
 }
 
@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     gap: 21px;
-    height: 360px;
+    height: 330px;
     overflow-y: scroll;
     padding: 5px;
 }
@@ -26,7 +26,7 @@
 
 .todo_area {
     width: 345px;
-    height: 430px;
+    height: 400px;
     background-color: white;
     border-radius: 24px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
@@ -81,7 +81,7 @@
 @media (min-width: 768px) {
     .todo_area {
         width: 710px;
-        height: 415px;
+        height: 400px;
         box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
     }
 
@@ -90,7 +90,7 @@
     }
 
     .inputs_container {
-        height: 335px;
+        height: 330px;
     }
   }
 

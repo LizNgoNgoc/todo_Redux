@@ -1,12 +1,13 @@
 import styles from './custom.module.css'
 import { showModal } from '../redux/slices/Func';
 import { useDispatch } from 'react-redux';
+import { setModalActiveTrue } from '../redux/slices/Func';
 
-function ModalBtn({setModalActive}) {
+function ModalBtn() {
     const dispatch = useDispatch()
     
     function getModal(e){
-        setModalActive(true)
+        dispatch(setModalActiveTrue(true))
         dispatch(showModal({str : 'Edit your name', attr : 'name'}))
     } 
 
