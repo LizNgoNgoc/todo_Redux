@@ -7,7 +7,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ModalWindow from './ModalWindow/ModalWindow';
 import { useSelector } from 'react-redux';
-import ToggleButton from './ToggleButton/ToggleButton';
+
 
 function App() {
   const modalActive = useSelector(state => state.funcSlice.modalActive)
@@ -28,7 +28,6 @@ function App() {
       </Routes>
        
       {modalActive && <ModalWindow/>}
-      <ToggleButton/>
   </section>
 }
 
