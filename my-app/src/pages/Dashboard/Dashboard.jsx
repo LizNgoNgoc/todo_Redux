@@ -2,7 +2,7 @@ import styles from './dashboard.module.css';
 import Greeting from '../../custom/Greeting';
 import Header from '../../components/Header/Header';
 import TodoContainer from '../../components/TodoContainer/TodoContainer';
-
+import ToggleButton from '../../components/ToggleButton/ToggleButton';
 
 function Dashboard () {
     return <section className={styles.dashboard}>
