@@ -1,15 +1,16 @@
+import { setDarkTheme } from '../../redux/slices/Func';
 import styles from './togglebutton.module.css';
-
+import { useDispatch } from 'react-redux';
 
 function ToggleButton() {
-    return   <div className={styles.section}>
-    <div className = {styles.toggle_switch}>
-        <label>
-            <input type = 'checkbox'/>
+    const dispatch = useDispatch()
+
+    return <div className={styles.section}>
+        <label className={styles.label}>
+            <input onChange={() => dispatch(setDarkTheme())} className={styles.inp} type = 'checkbox'/>
             <span className = {styles.slider}></span>
         </label>
     </div>
-</div>
 }
 
 export default ToggleButton;

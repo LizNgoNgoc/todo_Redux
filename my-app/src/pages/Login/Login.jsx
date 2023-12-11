@@ -44,7 +44,7 @@ function Login () {
     }
 
     return <section className={styles.login}>
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.container}>
                 <h3 className={styles.header}>Welcome Back!</h3>
                 <img src="./images/Slice 2.png" alt='img'/>

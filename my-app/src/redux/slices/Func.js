@@ -6,7 +6,8 @@ const initialState = {
         function : null,
         attr : ''
     },
-    modalActive : false
+    modalActive : false,
+    darkTheme : false,
 }
 
 export const funcSlice = createSlice({
@@ -25,8 +26,11 @@ export const funcSlice = createSlice({
         setModalActiveFalse : (state) => {
             return {...state, modalActive : false}
         },
+        setDarkTheme : (state) => {
+            return {...state, darkTheme : !state.darkTheme}
+        }
     }
 })
 
-export const {showModal, setModalActiveTrue, setModalActiveFalse} = funcSlice.actions
+export const {showModal, setModalActiveTrue, setModalActiveFalse, setDarkTheme} = funcSlice.actions
 export default funcSlice.reducer

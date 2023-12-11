@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import ModalWindow from './ModalWindow/ModalWindow';
 import { useSelector } from 'react-redux';
 
-
 function App() {
   const modalActive = useSelector(state => state.funcSlice.modalActive)
   const navigate = useNavigate()
@@ -26,7 +25,6 @@ function App() {
         <Route path='/signIn' element={<Login />} />
         <Route path='/todos' element={<Dashboard />} />
       </Routes>
-       
       {modalActive && <ModalWindow/>}
   </section>
 }
