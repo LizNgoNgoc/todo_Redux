@@ -7,7 +7,7 @@ import Todo from '../Todo/Todo';
 import { sendTodoId } from '../../redux/slices/Form';
 
 function Todos({setToggle}) {
-
+    const theme = useSelector(state => state.funcSlice.darkTheme)
 
     const todos = useSelector((state) => state.todoSlice.todos)
     const dispatch = useDispatch()
@@ -16,7 +16,7 @@ function Todos({setToggle}) {
             .then(todos => {
                 dispatch(addTodo(todos))})
     }, [])
-    return <section className={styles.todo_area}>
+return <section className={`${styles.todo_area} ${theme && styles.dark}`}>
         <div className={styles.check_container}>
             <div className={styles.tasks_cont}>
                 <p className={styles.tasks_txt}>Task List</p>

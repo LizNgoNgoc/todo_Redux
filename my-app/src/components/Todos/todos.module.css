@@ -78,6 +78,10 @@
     letter-spacing: 0.72px;
 }
 
+.dark {
+    background-color: rgb(28 28 28 / 83%);
+}
+
 @media (min-width: 768px) {
     .todo_area {
         width: 710px;

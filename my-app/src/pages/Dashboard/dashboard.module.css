@@ -94,6 +94,10 @@
     gap: 21px;
 }
 
+.dark {
+    background-color: #a3a1a1;
+}
+
 @media (min-width: 768px) {
     .header_container{
         padding: 15px;
