@@ -19,7 +19,7 @@ function Todos({setToggle}) {
 return <section className={`${styles.todo_area} ${theme && styles.dark}`}>
         <div className={styles.check_container}>
             <div className={styles.tasks_cont}>
-                <p className={styles.tasks_txt}>Task List</p>
+                <p className={`${styles.tasks_txt} ${theme && styles.dark_txt}`}>Task List</p>
                 <button className={styles.btn_task} onClick={() => {
                     dispatch(sendTodoId({}))
                     setToggle(true)}}></button>

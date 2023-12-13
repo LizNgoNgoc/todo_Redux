@@ -82,6 +82,10 @@
     background-color: rgb(28 28 28 / 83%);
 }
 
+.dark_txt {
+    color: #FFF;
+}
+
 @media (min-width: 768px) {
     .todo_area {
         width: 710px;
