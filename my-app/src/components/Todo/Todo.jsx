@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 
 export default function Todo({todo, setToggle}) {
-
+    const theme = useSelector(state => state.funcSlice.darkTheme)
 
     const [viewState, setViewState] = useState(false)
 
@@ -31,16 +31,16 @@ export default function Todo({todo, setToggle}) {
         api.apiDeleteTodo(todo._id)
     }
 
-    return <div className={styles.label_cont}>
+    return <div className={`${styles.label_cont} ${theme && styles.dark_label_cont}`}>
         <input type="checkbox" checked={todo.completed} className={styles.input} onChange={onCheckClick}/>
 
 
-        <button className={styles.btn_del}onClick={deleteTask}></button>
+        <button className={`${styles.btn_del} ${theme && styles.dark_btn_del}`} onClick={deleteTask}></button>
 
-        <label className={styles.inputs_text}>{`Task: ${todo.title}`}</label>
-        <p className={styles.inputs_text}>{`Date: ${todo.dayWeek}`}</p>
+        <label className={`${styles.inputs_text} ${theme && styles.dark_inp_txt}`}>{`Task: ${todo.title}`}</label>
+        <p className={`${styles.inputs_text} ${theme && styles.dark_inp_txt}`}>{`Date: ${todo.dayWeek}`}</p>
         <div className={`${styles.description} ${viewState ? '' : styles.none }`}>
-            <p className={styles.inputs_text}>{`Description: ${todo.description}`}</p>
+            <p className={`${styles.inputs_text} ${theme && styles.dark_inp_txt}`}>{`Description: ${todo.description}`}</p>
         </div>
         <div className={styles.container_btn}>
             <button className={styles.btn} onClick={()=> setViewState(!viewState)}>View</button>

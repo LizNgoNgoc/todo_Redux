@@ -86,6 +86,10 @@
     color: #FFF;
 }
 
+.dark_btn {
+    background-image: url(/public/images/icons8-плюс-50.png);
+}
+
 @media (min-width: 768px) {
     .todo_area {
         width: 710px;

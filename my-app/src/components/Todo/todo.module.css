@@ -88,3 +88,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+.dark_inp_txt{
+    color: white;
+}
+
+.dark_btn_del {
+    background-image: url(/public/images/icons8-закрыть-50.png);
+    rotate: 0deg;
+}
+
+.dark_label_cont {
+    background-color: #5c5c5c;
+    box-shadow: 0px 4px 15px 0px rgb(0 0 0 / 70%);
+}

@@ -1,5 +1,5 @@
 import styles from './todos.module.css'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import api from '../../service/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo } from '../../redux/slices/Todo';
@@ -20,7 +20,7 @@ return <section className={`${styles.todo_area} ${theme && styles.dark}`}>
         <div className={styles.check_container}>
             <div className={styles.tasks_cont}>
                 <p className={`${styles.tasks_txt} ${theme && styles.dark_txt}`}>Task List</p>
-                <button className={styles.btn_task} onClick={() => {
+                <button className={`${styles.btn_task} ${theme && styles.dark_btn}`} onClick={() => {
                     dispatch(sendTodoId({}))
                     setToggle(true)}}></button>
             </div>
