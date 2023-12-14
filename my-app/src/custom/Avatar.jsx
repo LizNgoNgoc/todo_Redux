@@ -7,7 +7,6 @@ import { setModalActiveTrue } from '../redux/slices/Func'
 function Avatar() {
 
     const dispatch = useDispatch()
-
     const user = useSelector(state => state.userSlice)
 
     function getModal(e){

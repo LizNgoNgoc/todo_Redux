@@ -1,5 +1,5 @@
 function passwordValidation(e) {
-    const pass = /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g;
+    const pass = /(?=.*[0-9])(?=.*[a-z])[0-9a-zA-Z]{6,}/g;
     const value = e.target.value
     return pass.test(value)
 }

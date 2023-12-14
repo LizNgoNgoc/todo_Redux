@@ -34,6 +34,7 @@
     padding: 0 5px;
 }
 
+
 .textarea {
     color: rgba(0, 0, 0, 0.75);
     font-family: Poppins;
@@ -88,10 +89,17 @@
     color: white;
     background-color: #5c5c5c;
 }
+.dark_inp::placeholder {
+    color: white;
+}
 
 .dark_textarea {
     color: white;
     background-color: #5c5c5c;
+}
+
+.dark_textarea::placeholder {
+    color: white;
 }
 
 .dark_btn_task {
