@@ -49,11 +49,11 @@ function Form({setToggle}) {
 
 
     
-    return <div className={styles.container}>
-        <button className={styles.btn_task} onClick={() => {setToggle(false)}}></button>
+    return <div className={`${styles.container} ${theme && styles.dark_container}`}>
+        <button className={`${styles.btn_task} ${theme && styles.dark_btn_task}`} onClick={() => {setToggle(false)}}></button>
         {formData._id 
-            ? <p className={styles.title}>Edit task</p>
-            : <p className={styles.title}>Create task</p>}
+            ? <p className={`${styles.title} ${theme && styles.dark_title}`}>Edit task</p>
+            : <p className={`${styles.title} ${theme && styles.dark_title}`}>Create task</p>}
         <form onSubmit={getInputValues} className={styles.form}>
             <input type="text" name='name' value={input.name} placeholder="Header" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
             <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>

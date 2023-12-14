@@ -81,20 +81,27 @@
     border-radius: 4px;
 }
 
+.dark_title {
+    color: white;
+}
+
 .dark_container {
-    background-color: #5c5c5c;
+    background-color: #28292c;
 }
 
 .dark_inp {
     color: white;
+    background-color: #5c5c5c;
 }
 
 .dark_textarea {
     color: white;
+    background-color: #5c5c5c;
 }
 
 .dark_btn_task {
-    background-image: url(/public/images/plus-vector-icon.jpg);
+    background-image: url(/public/images/1675005993_zefirka-club-p-belii-krest-na-chernom-fone-91.png);
+    transform: rotate(0deg);
 }
 
 @media (min-width: 768px) {
