@@ -8,7 +8,7 @@ import { addTodo, editTask } from '../../redux/slices/Todo';
 
 
 function Form({setToggle}) {
-
+    const theme = useSelector(state => state.funcSlice.darkTheme)
     const formData = useSelector(state => state.formSlice.editTask)
     const [input, setInput] = useState({
         name: formData.title || '',
@@ -55,10 +55,10 @@ function Form({setToggle}) {
             ? <p className={styles.title}>Edit task</p>
             : <p className={styles.title}>Create task</p>}
         <form onSubmit={getInputValues} className={styles.form}>
-            <input type="text" name='name' value={input.name} placeholder="Header" onChange={handleChange} className={styles.inp}/>
-            <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={styles.inp}/>
-            <input type="date" name='date' value={input.date} placeholder="Day" onChange={handleChange} className={styles.inp}/>
-            <textarea type="text" name='description'  placeholder="Description" onChange={handleChange} value={input.description} className={styles.textarea}/>
+            <input type="text" name='name' value={input.name} placeholder="Header" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
+            <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
+            <input type="date" name='date' value={input.date} placeholder="Day" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
+            <textarea type="text" name='description'  placeholder="Description" onChange={handleChange} value={input.description} className={`${styles.textarea} ${theme && styles.dark_textarea }`}/>
             {formData._id 
                 ? <button className={styles.create_btn}>Edit</button> 
                 : <button className={styles.create_btn}>Create</button>}

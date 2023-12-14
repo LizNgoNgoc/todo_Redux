@@ -81,6 +81,22 @@
     border-radius: 4px;
 }
 
+.dark_container {
+    background-color: #5c5c5c;
+}
+
+.dark_inp {
+    color: white;
+}
+
+.dark_textarea {
+    color: white;
+}
+
+.dark_btn_task {
+    background-image: url(/public/images/plus-vector-icon.jpg);
+}
+
 @media (min-width: 768px) {
     .container {
         width: 710px;
