@@ -7,6 +7,7 @@ import { addUser, userLogout } from '../../redux/slices/User';
 
 
 function Logout() {
+    const theme = useSelector(state => state.funcSlice.darkTheme)
     const user = useSelector(state => state.userSlice)
     const Navigate = useNavigate()
     const dispatch = useDispatch()
@@ -26,11 +27,11 @@ function Logout() {
         .then((data)=>dispatch(addUser(data)))
     },[])
 
-    return <>
+    return <div className={`${styles.logout_cont} ${theme && styles.dark_logout_cont}`}>
                 <button className={styles.logout} onClick={logout}>
-                    <img src="./images/icons8-off-50.png" alt="" />
+                    {/* <img src="./images/icons8-off-50.png" alt="" /> */}
                 </button>
-            </>
+            </div>
 }
 
 export default Logout

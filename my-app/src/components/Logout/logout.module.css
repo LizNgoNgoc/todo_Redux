@@ -1,10 +1,16 @@
 .logout_cont {
-    width: 100%;
-    height: 5px;
+    width: 50px;
+    height: 50px;
+    background-image: url(/public/images/icons8-off-50.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 20px; 
+    right: 15px;
 }
 
 .logout {
-    /* margin: 45px 0 0 265px; */
+    width: 50px;
+    height: 50px;
     color: rgba(0, 0, 0, 0.75);
     font-family: Poppins;
     font-size: 13px;
@@ -13,11 +19,18 @@
     line-height: 115.688%; 
     letter-spacing: 0.72px;
     border-radius: 4px;
-    position: absolute;
-    top: 15px; 
-    right: 15px;
     background: transparent;
     border: 0;
+}
+
+.dark_logout_cont {
+    background-color: rgba(255, 255, 255, 0.764);
+    background-image: url(/public/images/icons8-off-50.png);
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    width: 55px;
+    height: 57px;
+    border: 2px solid black;
 }
 
 @media (min-width: 768px) {
