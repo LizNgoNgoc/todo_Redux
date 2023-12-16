@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addTodo } from '../../redux/slices/Todo';
 import Todo from '../Todo/Todo';
 import { sendTodoId } from '../../redux/slices/Form';
+import Preloader from '../Preloader/Preloader';
 
 function Todos({setToggle}) {
     const theme = useSelector(state => state.funcSlice.darkTheme)
@@ -25,6 +26,7 @@ return <section className={`${styles.todo_area} ${theme && styles.dark}`}>
                     setToggle(true)}}></button>
             </div>
             <div className={styles.inputs_container}>
+                <Preloader />
                 {todos.map(todo => {
                     return <Todo key={todo._id} setToggle={setToggle} todo={todo}/>
                 })}
