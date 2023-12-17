@@ -8,9 +8,11 @@ const initialState = {
         function : null,
         attr : ''
     },
+    darkTheme:{
+        darkTheme : false,
+        toggle : false
+    },
     modalActive : false,
-    darkTheme : false,
-    toggle : false,
 }
 
 if(theme) {
