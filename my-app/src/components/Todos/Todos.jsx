@@ -37,7 +37,7 @@ return <section className={`${styles.todo_area} ${theme && styles.dark}`}>
                     setToggle(true)}}></button>
             </div>
             {screenLoading ? (
-                <Preloader />
+                <Preloader theme={theme}/> 
             ) : (
                 <div className={styles.inputs_container}>
                 {todos.map(todo => {
