@@ -30,3 +30,15 @@
         height: 40vh;
     }
   }
+
+@media (min-width: 820px) {
+    .header_container {
+        height: 30vh;
+    }
+  }
+
+ @media (min-width: 1024px) {
+    .header_container {
+        height: 42vh;
+    }
+  }

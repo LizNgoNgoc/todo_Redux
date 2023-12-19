@@ -26,7 +26,7 @@
 
 .todo_area {
     width: 345px;
-    height: 400px;
+    height: 50vh;
     background-color: white;
     border-radius: 24px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
@@ -106,6 +106,19 @@
         height: 330px;
     }
   }
+
+  @media (min-width: 820px) {
+    .todo_area {
+        height: 57vh;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .todo_area {
+        height: 50vh;
+    }
+  }
+
 
 
 
