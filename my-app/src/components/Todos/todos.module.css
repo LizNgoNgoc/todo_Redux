@@ -152,6 +152,21 @@
     }
 }
 
+@media (min-width: 1024px) and (max-height: 600px) {
+    .check_container {
+        height: 60vh;
+    }
+    .todo_area {
+        height: 70vh;
+    }
+    .inputs_container {
+        height: 65vh;
+    } 
+    .check_container {
+        height: 70vh;
+    }
+}
+
 
 
 
