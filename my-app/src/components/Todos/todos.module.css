@@ -163,6 +163,10 @@
     .inputs_container {
         height: 25vh;
     }
+
+    .tasks_cont {
+        margin-bottom: 10px;
+    }
 }
 
 @media (min-width: 1100px) {
