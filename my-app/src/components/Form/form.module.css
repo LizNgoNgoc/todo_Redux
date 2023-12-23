@@ -125,16 +125,16 @@
 
   @media (min-width: 820px) {
     .container {
-        height: 50vh;
+        height: 57vh;
     }
 
     .inp {
-        height: 35px;
-        font-size: 16px;
+        height: 45px;
+        font-size: 20px;
     }
 
     .create_btn {
-        font-size: 16px;
+        font-size: 20px;
     }
   }
     
@@ -159,28 +159,28 @@
     }
 
     .inp {
-        height: 35px;
-        font-size: 16px;
+        height: 45px;
+        font-size: 20px;
     }
 
     .create_btn {
-        font-size: 16px;
+        font-size: 20px;
     }
 }
 
 
 @media (min-width: 900px){
     .container {
-        height: 50vh;
+        height: 57vh;
     }
 
     .inp {
-        height: 35px;
-        font-size: 16px;
+        height: 45px;
+        font-size: 20px;
     }
 
     .create_btn {
-        font-size: 16px;
+        font-size: 20px;
     }
   }
 
