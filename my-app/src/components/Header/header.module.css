@@ -42,14 +42,20 @@
     }
   }
 
- @media (min-width: 1100px) {
+  @media (min-width: 1024px) and (max-height: 600px) {
+    .header_container {
+        height: 49vh;
+    }
+  }
+
+  @media (min-width: 1100px) {
     .header_container {
         height: 32vh;
     }
   }
 
-  @media (min-width: 1024px) and (max-height: 600px) {
+  @media (min-width: 1100px) and (max-height: 800px) {
     .header_container {
-        height: 30vh;
+        height: 49vh;
     }
   }
