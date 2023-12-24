@@ -4,7 +4,7 @@ import Registration from '../pages/Registration/Registration';
 import Login from '../pages/Login/Login';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ModalWindow from './ModalWindow/ModalWindow';
 import { useSelector } from 'react-redux';
 
