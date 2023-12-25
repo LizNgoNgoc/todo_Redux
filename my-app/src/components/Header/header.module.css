@@ -22,19 +22,14 @@
     font-weight: 600;
     line-height: 115.688%; 
     letter-spacing: 1.08px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
+    text-align: center;
 }
 
-@media (max-width: 280px) {
-    .header_container {
-        height: 56vh;
-    }
-  }
-
 @media (min-width: 768px) {
-    .header_container {
+    /* .header_container {
         height: 40vh;
-    }
+    } */
   }
 
 @media (min-width: 820px) {
@@ -43,9 +38,9 @@
     }
   }
   @media (min-width: 900px) and (max-height: 1400px) {
-    .header_container {
+    /* .header_container {
         height: 25vh;
-    }
+    } */
   }
 
   @media (min-width: 1024px){
