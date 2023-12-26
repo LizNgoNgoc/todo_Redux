@@ -113,12 +113,25 @@
     }
 
     .inp {
-        height: 35px;
-        font-size: 16px;
+        height: 40px;
+        font-size: 22px;
     }
 
     .create_btn {
-        font-size: 16px;
+        font-size: 22px;
+    }
+
+    .btn_task {
+        width: 43px;
+        height: 43px;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .textarea {
+        font-size: 22px;
     }
   }
 
@@ -143,12 +156,12 @@
     }
 
     .inp {
-        height: 35px;
-        font-size: 16px;
+        height: 40px;
+        font-size: 22px;
     }
 
     .create_btn {
-        font-size: 16px;
+        font-size: 22px;
     } 
   }
 
