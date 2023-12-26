@@ -112,6 +112,11 @@
     .inputs_text {
        font-size: 22px; 
     }
+
+    .btn_del {
+        width: 43px;
+        height: 43px;
+    }
   }
 
   

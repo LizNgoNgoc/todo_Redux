@@ -101,3 +101,9 @@
         height: 150px;
     }
 }
+
+@media (min-width : 768px) {
+    .date_num, .txt  {
+        font-size: 22px;
+    }
+}
