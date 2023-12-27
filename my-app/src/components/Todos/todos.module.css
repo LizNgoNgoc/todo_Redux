@@ -3,7 +3,7 @@
 .check_container {
     padding: 15px;
     position: relative;
-    height: 50vh;
+    height: 48vh;
    
 }
 
@@ -13,7 +13,7 @@
     gap: 21px;
     overflow-y: scroll;
     padding: 5px;
-    height: 47vh;
+    height: 37vh;
 }
 
 .inputs_container::-webkit-scrollbar{
@@ -26,7 +26,7 @@
 
 .todo_area {
     width: 100%;
-    height: 56vh;
+    height: 48vh;
     background-color: white;
     border-radius: 24px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
@@ -90,6 +90,18 @@
     background-image: url(/public/images/plus-vector-icon.jpg);
     border-radius: 50px;
 }
+
+@media (max-width: 280px) and (max-height:700px) {
+    .inputs_container {
+        height: 37vh;
+    }
+  }
+
+  @media (min-width: 390px) {
+    .inputs_container {
+        height: 40vh;
+    }
+  }
 
 @media (min-width: 768px) {
     .todo_area {
@@ -162,11 +174,11 @@
 
 @media (min-width: 1024px) and (max-height: 600px) {
     .todo_area {
-        height: 35vh;
+        height: 60vh;
     }
 
     .inputs_container {
-        height: 25vh;
+        height: 47vh;
     }
 
     .tasks_cont {
@@ -190,6 +202,17 @@
         height: 37vh;
     }
 }
+
+@media (min-width: 1280px) and (max-height: 800px) {
+    .todo_area {
+        height: 70vh;
+    }
+
+    .inputs_container {
+        height: 56vh;
+    }
+}
+
 
 
 
