@@ -78,9 +78,20 @@
     border-radius: 4px;
     position: absolute;
     top: 15px; 
-    left: 15px;
+    left: 0px;
     background: transparent;
     border: 0;
+}
+
+.btn {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    border: 0;
+    background-color: #ffffff00;
+}
+.btn img {
+    width: 35px;
 }
 
 @media (max-width: 280px) {

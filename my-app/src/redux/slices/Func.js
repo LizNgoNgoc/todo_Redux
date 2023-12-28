@@ -13,6 +13,7 @@ const initialState = {
         toggle : false
     },
     modalActive : false,
+    headerVisible : true
 }
 
 if(theme) {
@@ -43,9 +44,12 @@ export const funcSlice = createSlice({
         setDarkTheme : (state, action) => {
             saveLocal({theme : !state.darkTheme, toggle : action.payload})
             return {...state, darkTheme : !state.darkTheme, toggle : action.payload}
+        },
+        visibleHeight : (state) => {
+            return {...state, headerVisible : !state.headerVisible}
         }
     }
 })
 
-export const {showModal, setModalActiveTrue, setModalActiveFalse, setDarkTheme} = funcSlice.actions
+export const {showModal, setModalActiveTrue, setModalActiveFalse, setDarkTheme, visibleHeight} = funcSlice.actions
 export default funcSlice.reducer

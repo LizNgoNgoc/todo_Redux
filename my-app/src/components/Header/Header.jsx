@@ -4,16 +4,20 @@ import Logout from '../../components/Logout/Logout';
 import ModalBtn from '../../custom/ModalBtn';
 import { useSelector } from 'react-redux';
 import ToggleButton from '../ToggleButton/ToggleButton';
+import Point from '../../custom/Point';
 
 function Header() {
     const user = useSelector(state => state.userSlice)
     const theme = useSelector(state => state.funcSlice.darkTheme)
     return <div className={`${styles.header_container} ${theme && styles.dark}`}>
-        <ToggleButton />
-        <Avatar/>
-        <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
-        <Logout/>
-        <ModalBtn/>
+        <div className={styles.visible}>
+            <Avatar/>
+            <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
+            <Logout/>
+            <ModalBtn/>
+        </div>
+        <Point/>
+        <ToggleButton/>
     </div>
 }
 
