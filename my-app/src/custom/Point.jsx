@@ -4,8 +4,8 @@ import styles from './custom.module.css';
 
 function Point() {
     const theme = useSelector(state => state.funcSlice.darkTheme)
-    const dispatch = useDispatch()
     console.log(theme);
+    const dispatch = useDispatch()
     return <button className={styles.btn}>
            {theme
                 ? <img src="/images/point_white.png" alt="" />
