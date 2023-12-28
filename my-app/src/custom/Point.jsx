@@ -6,6 +6,8 @@ function Point() {
     const theme = useSelector(state => state.funcSlice.darkTheme)
     console.log(theme);
     const dispatch = useDispatch()
+
+    
     return <button className={styles.btn}>
            {theme
                 ? <img src="/images/point_white.png" alt="" />
