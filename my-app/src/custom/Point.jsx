@@ -7,9 +7,10 @@ function Point() {
     console.log(theme);
     const dispatch = useDispatch()
 
-    function visibleContent(e) {
+    function visibleContent() {
         dispatch(visibleHeight())
     }
+    console.log(visibleContent)
     return <button className={styles.btn} onClick={visibleContent}>
            {theme
                 ? <img src="/images/point_white.png" alt="" />

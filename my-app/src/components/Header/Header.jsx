@@ -10,7 +10,7 @@ import Point from '../../custom/Point';
 function Header() {
     const user = useSelector(state => state.userSlice)
     const theme = useSelector(state => state.funcSlice.darkTheme)
-    const dispatch = useDispatch()
+    
 
     
     return <div className={`${styles.header_container} ${theme && styles.dark}`}>
