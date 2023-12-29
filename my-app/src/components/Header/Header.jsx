@@ -2,7 +2,7 @@ import styles from './header.module.css';
 import Avatar from '../../custom/Avatar';
 import Logout from '../../components/Logout/Logout';
 import ModalBtn from '../../custom/ModalBtn';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ToggleButton from '../ToggleButton/ToggleButton';
 import Point from '../../custom/Point';
 
