@@ -1,7 +1,6 @@
 .header_container {
     background-image: url(/public/images/dashboard.png);
     background-repeat: no-repeat;
-   
     gap: 18px;
     background-color: #50C2C9;
     position: relative;
@@ -12,7 +11,8 @@
 .dark{
     background-color: rgb(49 49 49);
 }
-.visible{
+
+.visible {
   max-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -20,6 +20,10 @@
   transition: 0.5s;
   position: relative;
   overflow: hidden;
+}
+
+.not_visible {
+  display: none;
 }
 
 .header {
@@ -32,6 +36,10 @@
     letter-spacing: 1.08px;
     margin-bottom: 60px;
     text-align: center;
+}
+
+.scroll_header_container {
+  max-height: 0;
 }
 
 @media (min-width: 768px) {
