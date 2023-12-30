@@ -11,7 +11,7 @@ function Point() {
         dispatch(visibleHeight())
     }
     console.log(visibleContent)
-    return <button className={styles.btn} onClick={visibleContent}>
+    return <button className={{dispatch} ? `${styles.point_btn}` :`${styles.point_btn}`} onClick={visibleContent}>
            {theme
                 ? <img src="/images/point_white.png" alt="" />
                 : <img src="/images/point_black.png" alt="" />}
