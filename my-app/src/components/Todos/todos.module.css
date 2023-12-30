@@ -91,6 +91,14 @@
     border-radius: 50px;
 }
 
+.todo_area_not_visible {
+    height: 76vh;
+}
+
+.inputs_container_not_visible {
+    height: 65vh;
+}
+
 @media (max-width: 280px) and (max-height:700px) {
     .inputs_container {
         height: 37vh;
