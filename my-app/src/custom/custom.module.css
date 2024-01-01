@@ -98,7 +98,7 @@
     width: 35px;
 }
 
-.point_rotate {
+.point_btn img:hover {
     rotate: 180deg;
 }
 
