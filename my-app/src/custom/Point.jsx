@@ -5,6 +5,7 @@ import { visibleHeight } from '../redux/slices/Func';
 function Point() {
     const theme = useSelector(state => state.funcSlice.darkTheme)
     const visible = useSelector(state => state.funcSlice.visibleHeight)
+    console.log(visible);
     console.log(theme);
     const dispatch = useDispatch()
 
