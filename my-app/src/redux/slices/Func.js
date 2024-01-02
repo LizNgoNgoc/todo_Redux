@@ -23,6 +23,7 @@ if(theme) {
 
 function saveLocal(obj) {
     localStorage.setItem('darkTheme', JSON.stringify(obj))
+    localStorage.setItem('headerVisible', JSON.stringify(obj)) // localStorage
 }
 
 export const funcSlice = createSlice({
