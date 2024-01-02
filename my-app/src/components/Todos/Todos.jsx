@@ -13,6 +13,8 @@ function Todos({setToggle}) {
 
     const theme = useSelector(state => state.funcSlice.darkTheme)
     const todos = useSelector((state) => state.todoSlice.todos)
+    const visibleCont = useSelector(state => state.funcSlice.headerVisible)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -28,7 +30,7 @@ function Todos({setToggle}) {
         }, 1000)
     },[])
 
-return <section className={`${styles.todo_area} ${theme && styles.dark}`}>
+return <section className={`${styles.todo_area} ${theme && styles.dark} ${visibleCont && styles.todo_area_not_visible}`}>
         <div className={styles.check_container}>
             <div className={styles.tasks_cont}>
                 <p className={`${styles.tasks_txt} ${theme && styles.dark_txt}`}>Task List</p>
@@ -39,7 +41,7 @@ return <section className={`${styles.todo_area} ${theme && styles.dark}`}>
             {screenLoading ? (
                 <Preloader theme={theme}/> 
             ) : (
-                <div className={styles.inputs_container}>
+                <div className={`${styles.inputs_container}  ${visibleCont && styles.inputs_container_not_visible}`}>
                 {todos.map(todo => {
                     return <Todo key={todo._id} setToggle={setToggle} todo={todo}/>
                 })}

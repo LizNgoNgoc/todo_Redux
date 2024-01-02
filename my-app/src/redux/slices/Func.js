@@ -12,11 +12,7 @@ const initialState = {
         darkTheme : false,
         toggle : false
     },
-    // headerVisible: {
-    //     headerVisible : true,
-
-    // },
-    headerVisible : true,
+    headerVisible : JSON.parse(localStorage.getItem('headerVisible')) || false,
     modalActive : false,
 }
 
@@ -25,9 +21,8 @@ if(theme) {
     initialState.toggle = theme.toggle
 }
 
-function saveLocal(obj) {
-    localStorage.setItem('darkTheme', JSON.stringify(obj))
-    // localStorage.setItem('headerVisible', JSON.stringify(obj)) // localStorage
+function saveLocal(key, obj) {
+    localStorage.setItem(key, JSON.stringify(obj))
 }
 
 export const funcSlice = createSlice({
@@ -47,11 +42,11 @@ export const funcSlice = createSlice({
             return {...state, modalActive : false}
         },
         setDarkTheme : (state, action) => {
-            saveLocal({theme : !state.darkTheme, toggle : action.payload})
+            saveLocal('darkTheme', {theme : !state.darkTheme, toggle : action.payload})
             return {...state, darkTheme : !state.darkTheme, toggle : action.payload}
         },
         visibleHeight : (state) => {
-            // saveLocal({visibleCont : !state.headerVisible})
+            saveLocal('headerVisible', !state.headerVisible)
             return {...state, headerVisible : !state.headerVisible}
         }
     }

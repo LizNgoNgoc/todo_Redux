@@ -11,7 +11,7 @@ import { visibleHeight } from '../../redux/slices/Func';
 function Header() {
     const user = useSelector(state => state.userSlice)
     const theme = useSelector(state => state.funcSlice.darkTheme)
-    const visibleCont = useSelector(state => state.funcSlice.visibleHeight)
+    const visibleCont = useSelector(state => state.funcSlice.headerVisible)
 
     const dispatch = useDispatch()
 
@@ -21,8 +21,8 @@ function Header() {
     
 
     
-    return <div className={`${styles.header_container} ${theme && styles.dark} ${visibleCont && styles.scroll_header_container}`}>
-        <div className={styles.visible}>
+    return <div className={`${styles.header_container} ${theme && styles.dark} `}>
+        <div className={`${styles.visible} ${visibleCont && styles.not_visible}`}>
             <Avatar/>
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>
             <Logout/>

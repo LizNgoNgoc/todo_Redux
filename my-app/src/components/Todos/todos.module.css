@@ -14,6 +14,7 @@
     overflow-y: scroll;
     padding: 5px;
     height: 37vh;
+    transition: 0.5s;
 }
 
 .inputs_container::-webkit-scrollbar{
@@ -26,11 +27,13 @@
 
 .todo_area {
     width: 100%;
-    height: 47vh;
+    height: 50vh;
     background-color: white;
     border-radius: 24px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
     position: relative;
+    transition: 0.5s;
+    overflow-y: hidden;
 }
 
 .tasks_cont {
@@ -92,16 +95,17 @@
 }
 
 .todo_area_not_visible {
-    height: 76vh;
+    min-height: 79.5vh;
 }
 
-.inputs_container_not_visible {
-    height: 65vh;
-}
+
 
 @media (max-width: 280px) and (max-height:700px) {
     .inputs_container {
         height: 37vh;
+    }
+    .todo_area_not_visible {
+        min-height: 74vh;
     }
   }
 
@@ -222,7 +226,9 @@
 }
 
 
-
+.inputs_container_not_visible {
+    height: 70vh;
+}
 
 
 

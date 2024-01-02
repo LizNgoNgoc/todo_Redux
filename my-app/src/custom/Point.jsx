@@ -4,16 +4,14 @@ import { visibleHeight } from '../redux/slices/Func';
 
 function Point() {
     const theme = useSelector(state => state.funcSlice.darkTheme)
-    const visibleCont = useSelector(state => state.funcSlice.visibleHeight)
-    console.log(visibleCont);
-    console.log(theme);
+    const visibleCont = useSelector(state => state.funcSlice.headerVisible)
     const dispatch = useDispatch()
 
-    function visibleContent(headerVisible) {
+    function visibleContent() {
         dispatch(visibleHeight())
     }
   
-    return <button className={styles.point_btn} onClick={visibleContent}>
+    return <button className={`${styles.point_btn} ${visibleCont ? styles.rotate : ''}`} onClick={visibleContent}>
            {theme
                 ? <img src="/images/point_white.png" alt="" />
                 : <img src="/images/point_black.png" alt="" />}
