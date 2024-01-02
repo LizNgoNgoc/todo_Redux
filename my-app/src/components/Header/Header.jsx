@@ -15,7 +15,7 @@ function Header() {
 
     const dispatch = useDispatch()
 
-    function visibleContent(visibleCont) {
+    function visibleContent() {
         dispatch(visibleHeight())
     }
     
