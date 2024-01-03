@@ -21,7 +21,7 @@ function Header() {
     
 
     
-    return <div className={`${styles.header_container} ${theme && styles.dark} `}>
+    return <div className={`${styles.header_container} ${theme && styles.dark}`}>
         <div className={`${styles.visible} ${visibleCont && styles.not_visible}`}>
             <Avatar/>
             <h3 className={styles.header}>{`Welcome, ${user.name}!`}</h3>

@@ -47,9 +47,9 @@
 }
 
 @media (min-width: 768px) {
-    /* .header_container {
-        height: 40vh;
-    } */
+    .header_container {
+        padding: 5% 15px;
+    }
     .header {
       font-size: 22px;
     }
