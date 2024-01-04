@@ -69,6 +69,7 @@
   @media (min-width: 1024px){
     .header_container {
         height: 49vh;
+        padding: 10px 15px;
     }
   }
 
@@ -89,13 +90,14 @@
   @media (min-width: 1280px) and (max-height: 800px) {
     .header {
       position: absolute;
-      top: 55px;
+      top: 42px;
       right: 445px;
       margin-bottom: 0;
     }
     
     .header_container {
         height: 16vh;
+        padding: 10px 15px;
     }
  
   }
