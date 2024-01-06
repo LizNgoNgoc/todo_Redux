@@ -46,6 +46,12 @@
   display: none;
 }
 
+@media (max-width: 280px) {
+  .header_container {
+      padding: 13% 15px;
+  }
+}
+
 @media (min-width: 768px) {
     .header_container {
         padding: 5% 15px;
