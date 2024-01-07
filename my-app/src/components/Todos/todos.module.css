@@ -27,7 +27,7 @@
 
 .todo_area {
     width: 100%;
-    height: 50vh;
+    height: 45vh;
     background-color: white;
     border-radius: 24px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
@@ -109,7 +109,7 @@
 
   @media (min-width: 390px) {
     .inputs_container {
-        height: 40vh;
+        height: 37vh;
     }
   }
 
@@ -199,17 +199,23 @@
 
 @media (min-width: 900px){
     .todo_area {
-        height: 57vh;
+        height: 62vh;
     }
     .inputs_container {
-        height: 50vh;
+        height: 55vh;
     } 
+    .todo_area_not_visible {
+        min-height: 85vh;
+    }
+    .inputs_container_not_visible {
+        height: 78vh;
+    }
   }
 
 
 @media (min-width: 1024px) and (max-height: 600px) {
     .todo_area {
-        height: 60vh;
+        min-height: 60vh;
     }
     .header_not_visible{
         max-height: 50vh;
@@ -226,14 +232,25 @@
 
 @media (min-width: 1100px) {
     .todo_area {
-        height: 57vh;
+        height: 67vh;
+    }
+
+    .inputs_container {
+        height: 61vh;
+    }
+
+    .todo_area_not_visible {
+        min-height: 85vh;
+    }
+    .inputs_container_not_visible {
+        height: 78vh;
     }
   }
 
 
 @media (min-width: 1100px) and (max-height: 800px) {
     .todo_area {
-        height: 45vh;
+        min-height: 45vh;
     }
 
     .inputs_container {
@@ -243,7 +260,7 @@
 
 @media (min-width: 1280px) and (max-height: 800px) {
     .todo_area {
-        height: 70vh;
+        min-height: 70vh;
     }
 
     .inputs_container {
