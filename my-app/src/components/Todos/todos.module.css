@@ -151,7 +151,10 @@
 
   @media (max-height: 670px) {
     .inputs_container {
-        height: 62vh;
+        height: 35vh;
+    }
+    .inputs_container_not_visible{
+        height: 63vh;
     }
     .todo_area_not_visible {
         height: 74vh;
