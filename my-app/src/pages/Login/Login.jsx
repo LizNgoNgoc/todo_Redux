@@ -36,8 +36,8 @@ function Login () {
         e.preventDefault()
         api.apiLogin(inputs)
             .then(({token}) => {
-                localStorage.setItem('token', token)
                 if(token){
+                    localStorage.setItem('token', token)
                     return navigate('/todos')
                   }
             })

@@ -1,19 +1,29 @@
 import { configureStore } from "@reduxjs/toolkit";
 import registrationSlice from "./slices/Registration";
-// import Todo from "./slices/Todo";
+import { setupListeners } from "@reduxjs/toolkit/query";
+
 import todoSlice from "./slices/Todo";
 import userSlice  from "./slices/User";
 import formSlice from "./slices/Form";
 import funcSlice from "./slices/Func";
+import { userApi } from "./query/user";
 
-export const store = configureStore ({
+const store = configureStore ({
     reducer : {
         funcSlice,
-        // GetDate,
         todoSlice,
         userSlice,
         registrationSlice,
-        formSlice
+        formSlice,
+        [userApi.reducerPath]: userApi.reducer,
+    },
+    middleware : (getDefaultMiddleware) => {
+        return getDefaultMiddleware().concat(
+            userApi.middleware,
+        )
     }
 })
+setupListeners(store.dispatch);
+export {store}
+
 
