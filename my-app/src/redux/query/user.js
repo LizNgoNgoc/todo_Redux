@@ -10,11 +10,13 @@ export const userApi = createApi({
         getUserData : builder.query({
             query : () => ({
                 url : "user/me",
-                method : "GET"
+                method : "GET",
+                headers : {
+                    authorization : localStorage.getItem("token")
+                }
             })
         })
     })
 })
 
 export const { useGetUserDataQuery } = userApi
-console.log(userApi);

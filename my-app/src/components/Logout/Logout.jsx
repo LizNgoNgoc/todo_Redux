@@ -32,7 +32,6 @@ function Logout() {
 
     return <div className={`${styles.logout_cont} ${theme && styles.dark_logout_cont}`}>
                 <button className={styles.logout} onClick={logout}>
-                    {/* <img src="./images/icons8-off-50.png" alt="" /> */}
                 </button>
             </div>
 }
