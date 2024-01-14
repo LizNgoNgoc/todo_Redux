@@ -15,15 +15,15 @@ const store = configureStore ({
         userSlice,
         registrationSlice,
         formSlice,
-        [userApi.reducerPath]: userApi.reducer,
+        [userApi.reducerPath]: userApi.reducer, // передаем состояние
     },
-    middleware : (getDefaultMiddleware) => {
-        return getDefaultMiddleware().concat(
-            userApi.middleware,
+    middleware : (getDefaultMiddleware) => { // прописываем middleware - связующее ПО для обмена запросами между приложением и сервером
+        return getDefaultMiddleware().concat( // используем getDefaultMiddleware для добавления собственного промежуточного ПО
+            userApi.middleware, // передаем наше состояние
         )
     }
 })
-setupListeners(store.dispatch);
+setupListeners(store.dispatch); 
 export {store}
 
 
