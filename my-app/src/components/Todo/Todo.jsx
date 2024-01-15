@@ -4,14 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'; //*
 import { sendTodoId } from '../../redux/slices/Form'; //*
 import { completedTask, editTask, deleteTodo } from '../../redux/slices/Todo';
 import { useState } from 'react';
-
+import { useDeleteTodoMutation } from '../../redux/query/task';
 
 
 export default function Todo({todo, setToggle}) {
     const theme = useSelector(state => state.funcSlice.darkTheme)
-
+    const [apiDeleteTodo, {data, error, isLoading}] = useDeleteTodoMutation()
     const [viewState, setViewState] = useState(false)
-
     const dispatch = useDispatch()
    
     const onCheckClick = (e) => {
@@ -27,8 +26,9 @@ export default function Todo({todo, setToggle}) {
     }
 
     function deleteTask() {
-        dispatch(deleteTodo(todo._id))
-        api.apiDeleteTodo(todo._id)
+        apiDeleteTodo(todo._id).then(() => {
+            dispatch(deleteTodo(todo._id))
+        })
     }
 
     return <div className={`${styles.label_cont} ${theme && styles.dark_label_cont}`}>

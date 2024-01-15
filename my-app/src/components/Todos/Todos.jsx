@@ -6,29 +6,28 @@ import { addTodo } from '../../redux/slices/Todo';
 import Todo from '../Todo/Todo';
 import { sendTodoId } from '../../redux/slices/Form';
 import Preloader from '../Preloader/Preloader';
+import { useApiTodosQuery } from '../../redux/query/task';
 
 
 function Todos({setToggle}) {
     const [screenLoading, setScreenLoading] = useState(false)
 
     const theme = useSelector(state => state.funcSlice.darkTheme)
+    const {data, isLoading} = useApiTodosQuery({}, { refetchOnMountOrArgChange: true })
     const todos = useSelector((state) => state.todoSlice.todos)
     const visibleCont = useSelector(state => state.funcSlice.headerVisible)
 
     const dispatch = useDispatch()
 
     useEffect(() => {
-        api.apiTodos()
-            .then(todos => {
-                dispatch(addTodo(todos))})
-    }, [])
+        if(data) {
+            dispatch(addTodo(data))
+        }
+    }, [data])
 
     useEffect(() => {
-        setScreenLoading(true)
-        setTimeout(() => {
-            setScreenLoading(false)
-        }, 1000)
-    },[])
+        setScreenLoading(isLoading)
+    },[isLoading])
 
 return <section className={`${styles.todo_area} ${theme && styles.dark} ${visibleCont && styles.todo_area_not_visible}`}>
         <div className={styles.check_container}>
