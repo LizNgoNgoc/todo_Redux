@@ -24,8 +24,19 @@ export const apiTask = createApi({
                     authorization : localStorage.getItem('token')
                 }
             })
+        }),
+        createTodo: builder.mutation({
+            query: (body) => ({
+                url: 'todo/create',
+                method: 'POST',
+                body : JSON.stringify(body),
+                headers: {
+                    'Content-Type' : 'application/json',
+                    authorization : localStorage.getItem('token')
+                }
+            })
         })
     })
 })
 
-export const { useApiTodosQuery, useDeleteTodoMutation } = apiTask;
+export const { useApiTodosQuery, useDeleteTodoMutation, useCreateTodoMutation } = apiTask;

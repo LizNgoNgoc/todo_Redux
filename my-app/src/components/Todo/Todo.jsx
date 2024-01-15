@@ -9,7 +9,7 @@ import { useDeleteTodoMutation } from '../../redux/query/task';
 
 export default function Todo({todo, setToggle}) {
     const theme = useSelector(state => state.funcSlice.darkTheme)
-    const [apiDeleteTodo, {data, error, isLoading}] = useDeleteTodoMutation()
+    const [apiDeleteTodo] = useDeleteTodoMutation()
     const [viewState, setViewState] = useState(false)
     const dispatch = useDispatch()
    

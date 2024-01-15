@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import api from '../../service/api'
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, editTask } from '../../redux/slices/Todo';
+import { useApiTodosQuery, useCreateTodoMutation } from '../../redux/query/task';
 
 
 
@@ -10,6 +11,8 @@ import { addTodo, editTask } from '../../redux/slices/Todo';
 function Form({setToggle}) {
     const theme = useSelector(state => state.funcSlice.darkTheme)
     const formData = useSelector(state => state.formSlice.editTask)
+    const {data} = useApiTodosQuery({}, { refetchOnMountOrArgChange: true })
+    const [apiTodoCreate] = useCreateTodoMutation()
     const [input, setInput] = useState({
         name: formData.title || '',
         time: formData.time || '',
@@ -17,18 +20,14 @@ function Form({setToggle}) {
         description: formData.description || '',
         completed: formData.completed ||  false,
     })
-    console.log(formData)
 
     const dispatch = useDispatch()
 
-    useEffect( getTodos, [])
-
-
-    function getTodos(){
-        api.apiTodos()
-            .then(todos => dispatch(addTodo(todos)))
-    }
-   
+    useEffect( () => {
+        if(data){
+            dispatch(addTodo(data))
+        }
+    }, [data])
 
     function handleChange({target}) {
         const {name, value} = target
@@ -40,7 +39,7 @@ function Form({setToggle}) {
         e.preventDefault()
         const {name, time, date, description, completed} = input
         !formData._id 
-            ? api.apiTodoCreate({title : name, time, dayWeek : date, description, completed})
+            ? apiTodoCreate({title : name, time, dayWeek : date, description, completed})
                 .then(() => setToggle(false))
             : api.apiUpdateTodo({title : name, time, dayWeek : date, description, completed, _id : formData._id})
                 .then(task => dispatch(editTask(task)))

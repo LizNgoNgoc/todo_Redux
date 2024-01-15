@@ -2,14 +2,7 @@ class Api {
     constructor() {
         this.url = 'https://testapiservisefortesting.onrender.com/'
     }
-    // apiDeleteTodo(_id){
-    //     return fetch(this.url + `todo/delete?id=${_id}`, {
-    //         headers : {
-    //             authorization : localStorage.getItem('token')
-    //         },
-    //         method : 'DELETE',
-    //     })
-    // }
+
     apiUpdateTodo(body) {
         return fetch(this.url + `todo/patch?id=${body._id}`, {
             headers : {
@@ -52,17 +45,6 @@ class Api {
             body : JSON.stringify(body)
         }).then(responce => responce.json())
     }
-    apiTodoCreate(body) {
-        return fetch(this.url + 'todo/create', {
-            headers : {
-                'Content-Type' : 'application/json',
-                authorization : localStorage.getItem('token')
-            },
-            method : 'POST',
-            body : JSON.stringify(body)
-        }).then(responce => responce.json())
-
-    }
 
     apiChecked(body) {
         return fetch(this.url + `todo/patch?id=${body._id}`, {
@@ -75,25 +57,6 @@ class Api {
         }).then(responce => responce.json())
       
     }
-
-    // apiTodos(){
-    //     return  fetch(this.url + 'todo/todos', {
-    //         headers : {
-    //             'Content-Type' : 'application/json',
-    //             authorization : localStorage.getItem('token')
-    //         },
-    //         method : 'GET',
-    //     }).then(responce => responce.json())
-    // }
-    // apiForm() {
-    //     return fetch(this.url + 'user/me', {
-    //         headers : {
-    //             'Content-Type' : 'application/json',
-    //             authorization : localStorage.getItem('token')
-    //         },
-    //         method : 'GET',
-    //     }).then(responce => responce.json())
-    // }
 
     apiLogout(){
         return fetch(this.url + 'user/signout', {
