@@ -36,15 +36,15 @@ class Api {
         }).then(responce => responce.json())
     }
 
-    apiLogin(body){
-        return fetch(this.url + 'user/signIn', {
-            headers : {
-                'Content-Type' : 'application/json'
-            },
-            method : 'POST',
-            body : JSON.stringify(body)
-        }).then(responce => responce.json())
-    }
+    // apiLogin(body){
+    //     return fetch(this.url + 'user/signIn', {
+    //         headers : {
+    //             'Content-Type' : 'application/json'
+    //         },
+    //         method : 'POST',
+    //         body : JSON.stringify(body)
+    //     }).then(responce => responce.json())
+    // }
 
     // apiChecked(body) {
     //     return fetch(this.url + `todo/patch?id=${body._id}`, {

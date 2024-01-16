@@ -3,10 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { passwordValidation, mailValidation } from '../../components/validation/validation';
 import api from '../../service/api';
+import { useUserLoginMutation } from '../../redux/query/user';
 
 function Login () {
     const navigate = useNavigate()
-
+    const [apiLogin] = useUserLoginMutation()
     useEffect(()=>{
         if(localStorage.getItem('token')) navigate('/todos') 
     }, [])
@@ -34,8 +35,7 @@ function Login () {
 
     function handleSubmit(e) {
         e.preventDefault()
-        api.apiLogin(inputs)
-            .then(({token}) => {
+        apiLogin(inputs).then(({token}) => {
                 if(token){
                     localStorage.setItem('token', token)
                     return navigate('/todos')
