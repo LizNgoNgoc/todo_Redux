@@ -35,8 +35,30 @@ export const userApi = createApi({
                     'Content-Type' : 'application/json'
                 }
             })
+        }),
+        updateUserName : builder.mutation({
+            query : (body) => ({
+                url : `user/me`,
+                method : 'PATCH',
+                body : JSON.stringify(body),
+                headers : {
+                    'Content-Type' : 'application/json',
+                  authorization : localStorage.getItem('token')
+                }
+            })
+        }),
+        updateUserAvatar : builder.mutation({
+            query: (body) => ({
+                url: `user/avatar`,
+                method: 'PATCH',
+                body : JSON.stringify(body),
+                headers: {
+                    'Content-Type' : 'application/json',
+                    authorization : localStorage.getItem('token')
+                }
+            })
         })
     })
 })
 
-export const { useGetUserDataQuery, useUserLogoutMutation, useUserLoginMutation } = userApi // экспортируем метод
+export const { useGetUserDataQuery, useUserLogoutMutation, useUserLoginMutation, useUpdateUserNameMutation, useUpdateUserAvatarMutation } = userApi // экспортируем метод

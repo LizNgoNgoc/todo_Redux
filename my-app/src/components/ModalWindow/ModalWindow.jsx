@@ -2,11 +2,13 @@ import styles from './modalwindow.module.css'
 import { useDispatch } from 'react-redux'
 import { patchName } from '../../redux/slices/User'
 import { useSelector } from 'react-redux'
-import api from '../../service/api'
 import { setModalActiveFalse } from '../../redux/slices/Func'
+import { useUpdateUserNameMutation } from '../../redux/query/user'
+import { useUpdateUserAvatarMutation } from '../../redux/query/user'
 
 function ModalWindow() {
-    
+    const [apiUpdateName] = useUpdateUserNameMutation()
+    const [apiUpdateAvatar] = useUpdateUserAvatarMutation()
     const setting = useSelector(state => state.funcSlice.form)
     const dispatch = useDispatch()
 
@@ -17,8 +19,8 @@ function ModalWindow() {
         req(setting.attr === 'name' ? setName(data) : setAvatar(data))
     } 
 
-    const setName = (data) => api.apiUpdateName({[data.name] : data.value})
-    const setAvatar = (data) => api.apiUpdateAvatar({[data.name] : data.value})
+    const setName = (data) => apiUpdateName({[data.name] : data.value})
+    const setAvatar = (data) => apiUpdateAvatar({[data.name] : data.value})
     const req = (promise) =>  {
         promise.then((user) => {
             dispatch(patchName(user))

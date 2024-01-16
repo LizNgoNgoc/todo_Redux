@@ -3,16 +3,16 @@ class Api {
         this.url = 'https://testapiservisefortesting.onrender.com/'
     }
 
-    apiUpdateTodo(body) {
-        return fetch(this.url + `todo/patch?id=${body._id}`, {
-            headers : {
-                'Content-Type' : 'application/json',
-                authorization : localStorage.getItem('token')
-            },
-            method : 'PATCH',
-            body : JSON.stringify(body)
-        }).then(responce => responce.json())
-    }
+    // apiUpdateTodo(body) {
+    //     return fetch(this.url + `todo/patch?id=${body._id}`, {
+    //         headers : {
+    //             'Content-Type' : 'application/json',
+    //             authorization : localStorage.getItem('token')
+    //         },
+    //         method : 'PATCH',
+    //         body : JSON.stringify(body)
+    //     }).then(responce => responce.json())
+    // }
 
     // apiUpdateName(body) {
     //     return fetch(this.url + `user/me`, {
@@ -25,16 +25,16 @@ class Api {
     //     }).then(responce => responce.json())
     // }
 
-    apiUpdateAvatar(body){
-        return fetch(this.url + `user/avatar`, {
-            headers : {
-                'Content-Type' : 'application/json',
-                authorization : localStorage.getItem('token')
-            },
-            method : 'PATCH',
-            body : JSON.stringify(body)
-        }).then(responce => responce.json())
-    }
+    // apiUpdateAvatar(body){
+    //     return fetch(this.url + `user/avatar`, {
+    //         headers : {
+    //             'Content-Type' : 'application/json',
+    //             authorization : localStorage.getItem('token')
+    //         },
+    //         method : 'PATCH',
+    //         body : JSON.stringify(body)
+    //     }).then(responce => responce.json())
+    // }
 
     // apiLogin(body){
     //     return fetch(this.url + 'user/signIn', {
