@@ -1,7 +1,6 @@
 import styles from './todo.module.css';
-import api from '../../service/api';
-import { useDispatch, useSelector } from 'react-redux'; //*
-import { sendTodoId } from '../../redux/slices/Form'; //*
+import { useDispatch, useSelector } from 'react-redux'; 
+import { sendTodoId } from '../../redux/slices/Form'; 
 import { completedTask, editTask, deleteTodo } from '../../redux/slices/Todo';
 import { useState } from 'react';
 import { useDeleteTodoMutation } from '../../redux/query/task';

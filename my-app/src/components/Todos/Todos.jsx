@@ -1,6 +1,5 @@
 import styles from './todos.module.css'
 import { useEffect, useState } from 'react';
-import api from '../../service/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo } from '../../redux/slices/Todo';
 import Todo from '../Todo/Todo';

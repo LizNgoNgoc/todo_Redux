@@ -1,9 +1,9 @@
 import styles from './form.module.css'
 import { useEffect, useState } from 'react'
-import api from '../../service/api'
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, editTask } from '../../redux/slices/Todo';
 import { useApiTodosQuery, useCreateTodoMutation } from '../../redux/query/task';
+import { useUpdateTodoMutation } from '../../redux/query/task';
 
 
 
@@ -13,6 +13,7 @@ function Form({setToggle}) {
     const formData = useSelector(state => state.formSlice.editTask)
     const {data} = useApiTodosQuery({}, { refetchOnMountOrArgChange: true })
     const [apiTodoCreate] = useCreateTodoMutation()
+    const [apiUpdateTodo] = useUpdateTodoMutation()
     const [input, setInput] = useState({
         name: formData.title || '',
         time: formData.time || '',
@@ -41,7 +42,7 @@ function Form({setToggle}) {
         !formData._id 
             ? apiTodoCreate({title : name, time, dayWeek : date, description, completed})
                 .then(() => setToggle(false))
-            : api.apiUpdateTodo({title : name, time, dayWeek : date, description, completed, _id : formData._id})
+            : apiUpdateTodo({title : name, time, dayWeek : date, description, completed, _id : formData._id})
                 .then(task => dispatch(editTask(task)))
     }
 

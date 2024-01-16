@@ -1,5 +1,4 @@
 import styles from './logout.module.css';
-import api from '../../service/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
