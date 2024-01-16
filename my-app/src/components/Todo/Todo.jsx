@@ -5,19 +5,20 @@ import { sendTodoId } from '../../redux/slices/Form'; //*
 import { completedTask, editTask, deleteTodo } from '../../redux/slices/Todo';
 import { useState } from 'react';
 import { useDeleteTodoMutation } from '../../redux/query/task';
+import { useCheckedTodoMutation } from '../../redux/query/task';
 
 
 export default function Todo({todo, setToggle}) {
     const theme = useSelector(state => state.funcSlice.darkTheme)
     const [apiDeleteTodo] = useDeleteTodoMutation()
+    const [apiChecked] = useCheckedTodoMutation()
     const [viewState, setViewState] = useState(false)
     const dispatch = useDispatch()
    
     const onCheckClick = (e) => {
         const checked = e.target.checked
         dispatch(completedTask({_id : todo._id, checked}))
-        api.apiChecked(todo)
-            .then((data) => dispatch(editTask(data)))
+        apiChecked(todo).then((data) => dispatch(editTask(data)))
     }
 
     function editBtnAction () {

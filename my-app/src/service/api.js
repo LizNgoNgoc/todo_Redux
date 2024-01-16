@@ -46,17 +46,17 @@ class Api {
         }).then(responce => responce.json())
     }
 
-    apiChecked(body) {
-        return fetch(this.url + `todo/patch?id=${body._id}`, {
-            headers : {
-                'Content-Type' : 'application/json',
-                authorization : localStorage.getItem('token')
-            },
-            method : 'PATCH',
-            body : JSON.stringify({...body, completed : !body.completed})
-        }).then(responce => responce.json())
+    // apiChecked(body) {
+    //     return fetch(this.url + `todo/patch?id=${body._id}`, {
+    //         headers : {
+    //             'Content-Type' : 'application/json',
+    //             authorization : localStorage.getItem('token')
+    //         },
+    //         method : 'PATCH',
+    //         body : JSON.stringify({...body, completed : !body.completed})
+    //     }).then(responce => responce.json())
       
-    }
+    // }
 
     apiLogout(){
         return fetch(this.url + 'user/signout', {

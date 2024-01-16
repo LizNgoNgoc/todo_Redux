@@ -35,8 +35,19 @@ export const apiTask = createApi({
                     authorization : localStorage.getItem('token')
                 }
             })
+        }),
+        checkedTodo: builder.mutation({
+            query:(body) => ({
+                url:`todo/patch?id=${body._id}`,
+                method: 'PATCH',
+                body : JSON.stringify({...body, completed : !body.completed}),
+                headers: {
+                    'Content-Type' : 'application/json',
+                    authorization : localStorage.getItem('token')
+                }
+            })
         })
     })
 })
 
-export const { useApiTodosQuery, useDeleteTodoMutation, useCreateTodoMutation } = apiTask;
+export const { useApiTodosQuery, useDeleteTodoMutation, useCreateTodoMutation, useCheckedTodoMutation } = apiTask;
