@@ -15,8 +15,18 @@ export const userApi = createApi({
                     authorization : localStorage.getItem("token") // авторизация - передаем token в localStorage
                 }
             })
+        }),
+        userLogout : builder.mutation({
+            query : () => ({
+                url : 'user/signout',
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json',
+                    authorization : localStorage.getItem('token')
+                }
+            })
         })
     })
 })
 
-export const { useGetUserDataQuery } = userApi // экспортируем метод
+export const { useGetUserDataQuery, useUserLogoutMutation } = userApi // экспортируем метод

@@ -58,15 +58,15 @@ class Api {
       
     // }
 
-    apiLogout(){
-        return fetch(this.url + 'user/signout', {
-            headers : {
-                'Content-Type' : 'application/json',
-                authorization : localStorage.getItem('token')
-            },
-            method : 'POST',
-        })
-    }
+    // apiLogout(){
+    //     return fetch(this.url + 'user/signout', {
+    //         headers : {
+    //             'Content-Type' : 'application/json',
+    //             authorization : localStorage.getItem('token')
+    //         },
+    //         method : 'POST',
+    //     })
+    // }
 }
 
 const api = new Api()

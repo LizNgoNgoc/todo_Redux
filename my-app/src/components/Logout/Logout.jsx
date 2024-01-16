@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { addUser, userLogout } from '../../redux/slices/User';
 import { useGetUserDataQuery } from '../../redux/query/user';
+import { useUserLogoutMutation } from '../../redux/query/user';
 
 function Logout() {
     const theme = useSelector(state => state.funcSlice.darkTheme)
     const {data} = useGetUserDataQuery({}, { refetchOnMountOrArgChange: true })
+    const [apiLogout] = useUserLogoutMutation()
     const Navigate = useNavigate()
     const dispatch = useDispatch()
     
@@ -19,8 +21,7 @@ function Logout() {
     },[])
 
     const logout = (e) => {
-        api.apiLogout()
-            .then((responce) => {
+        apiLogout().then((responce) => {
                 if(responce.ok){
                     dispatch(userLogout())
                     Navigate('/signIn')
