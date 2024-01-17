@@ -47,18 +47,18 @@ export const userApi = createApi({
                 }
             })
         }),
-//         updateUserAvatar : builder.mutation({
-//             query: (body) => ({
-//                 url: `user/avatar`,
-//                 method: 'PATCH',
-//                 body : JSON.stringify(body),
-//                 headers: {
-//                     'Content-Type' : 'application/json',
-//                     authorization : localStorage.getItem('token')
-//                 }
-//             })
-//         })
-//     })
-// })
+        updateUserAvatar : builder.mutation({
+            query: (body) => ({
+                url: `user/avatar`,
+                method: 'PATCH',
+                body : JSON.stringify(body),
+                headers: {
+                    'Content-Type' : 'application/json',
+                    authorization : localStorage.getItem('token')
+                }
+            })
+        })
+    })
+})
 
 export const { useGetUserDataQuery, useUserLogoutMutation, useUserLoginMutation, useUpdateUserNameMutation, useUpdateUserAvatarMutation } = userApi // экспортируем метод
