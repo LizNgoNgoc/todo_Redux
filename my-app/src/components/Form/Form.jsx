@@ -11,6 +11,7 @@ import { useUpdateTodoMutation } from '../../redux/query/task';
 function Form({setToggle}) {
     const theme = useSelector(state => state.funcSlice.darkTheme)
     const formData = useSelector(state => state.formSlice.editTask)
+    const visibleCont = useSelector(state => state.funcSlice.headerVisible)
     const {data} = useApiTodosQuery({}, { refetchOnMountOrArgChange: true })
     const [apiTodoCreate] = useCreateTodoMutation()
     const [apiUpdateTodo] = useUpdateTodoMutation()
@@ -49,7 +50,7 @@ function Form({setToggle}) {
 
 
     
-    return <div className={`${styles.container} ${theme && styles.dark_container}`}>
+    return <div className={`${styles.container} ${theme && styles.dark_container} ${visibleCont && styles.create_not_visible}`}>
         <button className={`${styles.btn_task} ${theme && styles.dark_btn_task}`} onClick={() => {setToggle(false)}}></button>
         {formData._id 
             ? <p className={`${styles.title} ${theme && styles.dark_title}`}>Edit task</p>
@@ -58,7 +59,7 @@ function Form({setToggle}) {
             <input type="text" name='name' value={input.name} placeholder="Header" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
             <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
             <input type="date" name='date' value={input.date} placeholder="Day" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
-            <textarea type="text" name='description'  placeholder="Description" onChange={handleChange} value={input.description} className={`${styles.textarea} ${theme && styles.dark_textarea }`}/>
+            <textarea type="text" name='description'  placeholder="Description" onChange={handleChange} value={input.description} className={`${styles.textarea} ${theme && styles.dark_textarea } ${visibleCont && styles.textarea_not_visible}`}/>
             {formData._id 
                 ? <button className={styles.create_btn}>Edit</button> 
                 : <button className={styles.create_btn}>Create</button>}

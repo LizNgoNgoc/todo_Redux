@@ -17,7 +17,7 @@ function Logout() {
         if(data) {
             dispatch(addUser(data))
         }
-    },[])
+    },[data])
 
     const logout = (e) => {
         apiLogout().then((responce) => {

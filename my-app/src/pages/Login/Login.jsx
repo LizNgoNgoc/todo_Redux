@@ -6,7 +6,8 @@ import { useUserLoginMutation } from '../../redux/query/user';
 
 function Login () {
     const navigate = useNavigate()
-    const [apiLogin] = useUserLoginMutation()
+    const [apiLogin, {data}] = useUserLoginMutation()
+   
     useEffect(()=>{
         if(localStorage.getItem('token')) navigate('/todos') 
     }, [])
@@ -34,13 +35,15 @@ function Login () {
 
     function handleSubmit(e) {
         e.preventDefault()
-        apiLogin(inputs).then(({token}) => {
-                if(token){
-                    localStorage.setItem('token', token)
-                    return navigate('/todos')
-                  }
-            })
+        apiLogin(inputs)
     }
+
+    useEffect(() => {
+        if(data){
+            localStorage.setItem('token', data.token)
+            return navigate('/todos')
+          }
+    }, [data])
 
     return <section className={styles.login}>
         <form className={styles.form} onSubmit={handleSubmit}>

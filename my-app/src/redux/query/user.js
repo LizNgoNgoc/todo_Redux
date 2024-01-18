@@ -29,11 +29,11 @@ export const userApi = createApi({
         userLogin : builder.mutation({
             query : (body) => ({
                 url : 'user/signIn',
-                mathood : 'POST',
-                body : JSON.stringify(body),
+                method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json'
-                }
+                },
+                body : JSON.stringify(body),
             })
         }),
         updateUserName : builder.mutation({
@@ -61,4 +61,9 @@ export const userApi = createApi({
     })
 })
 
-export const { useGetUserDataQuery, useUserLogoutMutation, useUserLoginMutation, useUpdateUserNameMutation, useUpdateUserAvatarMutation } = userApi // экспортируем метод
+export const { useGetUserDataQuery, 
+                useUserLogoutMutation, 
+                useUserLoginMutation, 
+                useUpdateUserNameMutation, 
+                useUpdateUserAvatarMutation } = userApi // экспортируем метод
+                console.log(userApi);
