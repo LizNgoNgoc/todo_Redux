@@ -40,7 +40,7 @@ export default function Todo({todo, setToggle}) {
         <label className={`${styles.inputs_text} ${theme && styles.dark_inp_txt}`}>{`Task: ${todo.title}`}</label>
         <p className={`${styles.inputs_text} ${theme && styles.dark_inp_txt}`}>{`Date: ${todo.dayWeek}`}</p>
         <div className={`${styles.description} ${viewState ? '' : styles.none }`}>
-            <p className={`${styles.inputs_text} ${theme && styles.dark_inp_txt}`}>{`Description: ${todo.description}`}</p>
+            <p className={`${styles.inputs_text} ${theme && styles.dark_inp_txt}`}>{`Comment: ${todo.description}`}</p>
         </div>
         <div className={styles.container_btn}>
             <button className={styles.btn} onClick={()=> setViewState(!viewState)}>View</button>
