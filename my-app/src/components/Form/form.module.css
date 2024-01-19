@@ -124,7 +124,11 @@
     resize: none;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 550px) {
+    .title {
+        font-size: 26px;
+    }
+
     .inp {
         font-size: 24px;
         height: 40px;
@@ -132,7 +136,11 @@
 
     .textarea {
         font-size: 24px;
-        height: calc(100vh - 755px);
+        height: calc(100vh - 770px);
+    }
+
+    .create_btn {
+        font-size: 20px;
     }
   }
 
