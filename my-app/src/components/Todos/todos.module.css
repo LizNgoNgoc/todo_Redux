@@ -109,6 +109,17 @@
         width: 40px;
         height: 40px;
     }
+}
+
+@media (min-width: 1024px) {
+    .tasks_txt {
+        font-size: 26px;
+    }
+
+    .btn_task {
+        width: 40px;
+        height: 40px;
+    }
   }
 
 
