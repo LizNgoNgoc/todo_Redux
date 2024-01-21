@@ -150,27 +150,12 @@
 }
 
 @media (min-width: 1024px) {
-    .title {
-        font-size: 26px;
+    .container {
+        min-height: 365px;
     }
 
-    .inp {
-        font-size: 24px;
-        height: 40px;
-    }
-
-    .textarea {
-        font-size: 24px;
-        height: calc(100vh - 770px);
-    }
-
-    .create_btn {
-        font-size: 20px;
-    }
-
-    .btn_task {
-        width: 40px;
-        height: 40px;
+    .create_not_visible {
+        min-height: calc(100vh - 150px);
     }
   }
 
