@@ -112,13 +112,12 @@
 }
 
 @media (min-width: 1024px) {
-    .tasks_txt {
-        font-size: 26px;
+    .check_container {
+        height: calc(100vh - 350px);
     }
 
-    .btn_task {
-        width: 40px;
-        height: 40px;
+    .inputs_container {
+        height: calc(100vh - 435px);
     }
   }
 
