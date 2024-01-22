@@ -46,4 +46,9 @@
   display: none;
 }
 
-
+@media (min-width: 1024px) {
+  .header {
+    margin-bottom: 0;
+    font-size: 25px;
+  }
+}
