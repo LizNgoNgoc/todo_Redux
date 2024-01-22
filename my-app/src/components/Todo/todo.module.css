@@ -8,14 +8,7 @@
     letter-spacing: 0.72px;
 }
 
-.input{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 10px;
-    top: 10px;
-    
-}
+
 
 .tasks_cont {
     justify-content: space-between;
@@ -31,6 +24,19 @@
     padding: 35px 10px 10px;
     flex-direction: column;
 }
+.descriptionText{
+    color: rgba(0, 0, 0, 0.75);
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 115.688%; 
+    letter-spacing: 0.72px;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 8px 15px;
+    font-size: 22px;
+}
 
 .btn {
     color: rgba(0, 0, 0, 0.75);
@@ -41,6 +47,8 @@
     line-height: 115.688%; 
     letter-spacing: 0.72px;
     border-radius: 4px;
+    padding: 8px;
+    width: 100px;
 }
 
 .description {
@@ -82,6 +90,8 @@
     line-height: 115.688%; 
     letter-spacing: 0.72px;
     border-radius: 4px;
+    padding: 8px;
+    width: 100px;
 }
 
 .container_btn {
@@ -104,13 +114,18 @@
     box-shadow: 0px 4px 15px 0px rgb(0 0 0 / 70%);
 }
 
+.dark_btn {
+    background-color: rgb(49, 49, 49);
+    color: white;
+}
+
 @media (min-width: 550px) {
     .btn, .editBtn {
         font-size: 22px;
     }
 
     .inputs_text {
-       font-size: 24px; 
+       font-size: 26px; 
     }
 
     .btn_del {
@@ -119,7 +134,8 @@
     }
 
     .label_cont {
-        padding: 45px 10px 10px;
+        padding: 50px 10px 10px;
+        gap: 14px;
     }
 
     .input{
