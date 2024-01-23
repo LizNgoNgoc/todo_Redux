@@ -14,7 +14,8 @@ export default function Checkbox({todo}) {
     }
 
 
-    return <div className={styles.containerChrckbox}>
-        <input type="checkbox" checked={todo.completed} className={styles.input} onChange={onCheckClick}/>
-    </div>
+    return <>
+        <input type="checkbox" checked={todo.completed} id='check' className={styles.input} onChange={onCheckClick}/>
+        <label for='check'>Box</label>
+    </>
 }
