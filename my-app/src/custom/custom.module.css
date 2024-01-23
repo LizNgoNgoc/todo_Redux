@@ -5,12 +5,18 @@
     justify-content: space-between;
 }
 
-.input{
+.containerChrckbox {
     position: absolute;
     width: 20px;
     height: 20px;
     left: 10px;
     top: 10px;
+}
+
+.input{
+    position: absolute;
+    width: 20px;
+    height: 20px;
 }
 
 .txt {
@@ -112,6 +118,14 @@
 }
 
 @media (min-width: 550px) {
+    .containerChrckbox {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: 10px;
+        top: 10px;
+    }
+
     .input{
         width: 30px;
         height: 30px;
