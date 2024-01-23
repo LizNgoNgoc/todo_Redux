@@ -110,3 +110,10 @@
 .rotate{
     transform: rotate(180deg);
 }
+
+@media (min-width: 550px) {
+    .input{
+        width: 30px;
+        height: 30px;
+    }
+  }
