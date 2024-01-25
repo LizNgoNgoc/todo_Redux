@@ -13,6 +13,7 @@ export default function Checkbox({todo}) {
         const checked = e.target.checked
         dispatch(completedTask({_id : todo._id, checked}))
         apiChecked(todo).then((data) => dispatch(editTask(data.data)))
+        dispatch(checkboxChecked({_id : todo._id, checked}))
     }
 
 
