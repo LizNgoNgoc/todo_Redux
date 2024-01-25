@@ -45,10 +45,17 @@
   }
 
   .input+.label_check::before {
-    background-image: url(/public/images/checkbox_light.png);
+    background-image: url(/public/images/checked-svgrepo-com.svg);
     width: 20px;
     height: 20px;
-    background-size: cover;
+    background-size: 90%;
+  }
+
+  .input+.label_check_dark::before {
+    background-image: url(/public/images/checked-svgrepo-activ.svg);
+    width: 20px;
+    height: 20px;
+    background-size: 90%;
   }
 
 .txt {
@@ -179,10 +186,18 @@
         background-size: 50% 50%;
       }
 
-      .input+.label_check::before {
-        background-image: url(/public/images/checkbox_light.png);
+      .input+.label_check_dark::before {
+        background-image: url(/public/images/checked-svgrepo-activ.svg);
         width: 30px;
         height: 30px;
-        background-size: cover;
+        background-size: 90%;
       }
+      
+      .input+.label_check::before {
+          background-image: url(/public/images/checked-svgrepo-com.svg);
+          width: 30px;
+          height: 30px;
+          background-size: 90%;
+        }
+        
   }
