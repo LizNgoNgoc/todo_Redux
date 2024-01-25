@@ -2,6 +2,7 @@ import styles from './custom.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useCheckedTodoMutation } from '../redux/query/task'
 import { editTask, completedTask } from '../redux/slices/Todo'
+import { checkboxChecked } from '../redux/slices/Func'
 
 export default function Checkbox({todo}) {
     const [apiChecked] = useCheckedTodoMutation()
