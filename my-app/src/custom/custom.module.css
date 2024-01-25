@@ -48,6 +48,7 @@
     background-image: url(/public/images/checkbox_light.png);
     width: 20px;
     height: 20px;
+    background-size: cover;
   }
 
 .txt {
@@ -182,5 +183,6 @@
         background-image: url(/public/images/checkbox_light.png);
         width: 30px;
         height: 30px;
+        background-size: cover;
       }
   }
