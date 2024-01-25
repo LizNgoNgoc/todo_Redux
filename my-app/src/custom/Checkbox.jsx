@@ -1,11 +1,12 @@
 import styles from './custom.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useCheckedTodoMutation } from '../redux/query/task'
 import { editTask, completedTask } from '../redux/slices/Todo'
 
 export default function Checkbox({todo}) {
     const [apiChecked] = useCheckedTodoMutation()
     const dispatch = useDispatch()
+    const check = useSelector(state => state.funcSlice.checked)
 
     const onCheckClick = (e) => {
         const checked = e.target.checked
@@ -16,6 +17,6 @@ export default function Checkbox({todo}) {
 
     return <>
         <input type="checkbox" checked={todo.completed} id='check' className={styles.input} onChange={onCheckClick}/>
-        <label for='check' className={styles.label}></label>
+        <label for='check' className={`${styles.label} ${check && styles.label_check}`}></label>
     </>
 }

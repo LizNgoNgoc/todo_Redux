@@ -14,6 +14,7 @@ const initialState = {
     },
     headerVisible : JSON.parse(localStorage.getItem('headerVisible')) || false,
     modalActive : false,
+    checked: JSON.parse(localStorage.getItem('checked')) || false,
 }
 
 if(theme) {
@@ -48,9 +49,13 @@ export const funcSlice = createSlice({
         visibleHeight : (state) => {
             saveLocal('headerVisible', !state.headerVisible)
             return {...state, headerVisible : !state.headerVisible}
+        },
+        checkboxChecked : (state) => {
+            saveLocal('checked', !state.checked)
+            return {...state, checked : !state.checked}
         }
     }
 })
 
-export const {showModal, setModalActiveTrue, setModalActiveFalse, setDarkTheme, visibleHeight} = funcSlice.actions
+export const {showModal, setModalActiveTrue, setModalActiveFalse, setDarkTheme, visibleHeight, checkboxChecked} = funcSlice.actions
 export default funcSlice.reducer
