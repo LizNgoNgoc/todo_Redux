@@ -19,8 +19,6 @@ export default function Checkbox({todo}) {
         })
     }
 
-
-
     return <>
         <input type="checkbox" defaultChecked={check}  id='check' className={styles.input} />
         <label htmlFor='check' onClick={onCheckClick} 
