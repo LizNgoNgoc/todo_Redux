@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useDeleteTodoMutation } from '../../redux/query/task';
 import Checkbox from '../../custom/Checkbox';
 import { setViewStateTrue } from '../../redux/slices/Func';
+import { setViewStateFalse } from '../../redux/slices/Func';
 
 export default function Todo({todo, setToggle}) {
     const theme = useSelector(state => state.funcSlice.darkTheme)
@@ -29,6 +30,7 @@ export default function Todo({todo, setToggle}) {
         dispatch(setViewStateTrue(false))
     }
 
+
     return <div className={`${styles.label_cont} ${theme && styles.dark_label_cont}`}>
         <Checkbox todo={todo} />
         <button className={`${styles.btn_del} ${theme && styles.dark_btn_del}`} onClick={deleteTask}></button>
@@ -39,10 +41,7 @@ export default function Todo({todo, setToggle}) {
             <p className={`${styles.descriptionText} ${theme && styles.dark_inp_txt}`}>{todo.description}</p>
         </div>
         <div className={styles.container_btn}>
-            <button className={`${styles.btn} ${theme && styles.dark_btn}`} 
-            // onClick={()=> setViewState(!viewState)}
-            onClick={viewComment}
-            >View</button>
+            <button className={`${styles.btn} ${theme && styles.dark_btn}`} onClick={viewComment}>View</button>
             <button onClick={editBtnAction} className={`${styles.editBtn} ${theme && styles.dark_btn}`}>Edit</button>
 
         </div>

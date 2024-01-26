@@ -52,9 +52,12 @@ export const funcSlice = createSlice({
         },
         setViewStateTrue : (state) => {
             return {...state, viewState : true}
+        },
+        setViewStateFalse : (state) => {
+            return state
         }
     }
 })
 
-export const {showModal, setModalActiveTrue, setModalActiveFalse, setDarkTheme, visibleHeight, setViewStateTrue} = funcSlice.actions
+export const {showModal, setModalActiveTrue, setModalActiveFalse, setDarkTheme, visibleHeight, setViewStateTrue, setViewStateFalse} = funcSlice.actions
 export default funcSlice.reducer
