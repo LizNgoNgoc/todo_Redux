@@ -14,6 +14,7 @@ const initialState = {
     },
     headerVisible : JSON.parse(localStorage.getItem('headerVisible')) || false,
     modalActive : false,
+    viewState : false, // скрытие комментария
 }
 
 if(theme) {
@@ -48,9 +49,12 @@ export const funcSlice = createSlice({
         visibleHeight : (state) => {
             saveLocal('headerVisible', !state.headerVisible)
             return {...state, headerVisible : !state.headerVisible}
+        },
+        setViewStateTrue : (state) => {
+            return {...state, viewState : true}
         }
     }
 })
 
-export const {showModal, setModalActiveTrue, setModalActiveFalse, setDarkTheme, visibleHeight} = funcSlice.actions
+export const {showModal, setModalActiveTrue, setModalActiveFalse, setDarkTheme, visibleHeight, setViewStateTrue} = funcSlice.actions
 export default funcSlice.reducer
