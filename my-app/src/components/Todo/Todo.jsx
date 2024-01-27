@@ -2,7 +2,6 @@ import styles from './todo.module.css';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { sendTodoId } from '../../redux/slices/Form'; 
 import { deleteTodo } from '../../redux/slices/Todo';
-import { useState } from 'react';
 import { useDeleteTodoMutation } from '../../redux/query/task';
 import Checkbox from '../../custom/Checkbox';
 import { setViewStateTrue } from '../../redux/slices/Func';
