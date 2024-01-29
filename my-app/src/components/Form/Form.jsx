@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, editTask } from '../../redux/slices/Todo';
 import { useApiTodosQuery, useCreateTodoMutation } from '../../redux/query/task';
 import { useUpdateTodoMutation } from '../../redux/query/task';
+import Preloader from '../Preloader/Preloader';
 
 
 
@@ -12,9 +13,10 @@ function Form({setToggle}) {
     const theme = useSelector(state => state.funcSlice.darkTheme)
     const formData = useSelector(state => state.formSlice.editTask)
     const visibleCont = useSelector(state => state.funcSlice.headerVisible)
-    const {data} = useApiTodosQuery({}, { refetchOnMountOrArgChange: true })
-    const [apiTodoCreate] = useCreateTodoMutation()
-    const [apiUpdateTodo] = useUpdateTodoMutation()
+    const {data, isLoading} = useApiTodosQuery({}, { refetchOnMountOrArgChange: true })
+    const [screenLoading, setScreenLoading] = useState(false)
+    const [apiTodoCreate, apiCreateOption] = useCreateTodoMutation()
+    const [apiUpdateTodo, apiUpdateOption] = useUpdateTodoMutation()
     const [input, setInput] = useState({
         name: formData.title || '',
         time: formData.time || '',
@@ -31,6 +33,10 @@ function Form({setToggle}) {
         }
     }, [data])
 
+    useEffect(() => {
+        setScreenLoading(apiCreateOption.isLoading || apiUpdateOption.isLoading || isLoading)
+    }, [apiCreateOption.isLoading, apiUpdateOption.isLoading, isLoading])
+
     function handleChange({target}) {
         const {name, value} = target
         setInput({...input, [name] : value})
@@ -44,7 +50,10 @@ function Form({setToggle}) {
             ? apiTodoCreate({title : name, time, dayWeek : date, description, completed})
                 .then(() => setToggle(false))
             : apiUpdateTodo({title : name, time, dayWeek : date, description, completed, _id : formData._id})
-                .then(task => dispatch(editTask(task)))
+                .then(task => {
+                    dispatch(editTask(task))
+                    setToggle(false)
+                })
     }
 
 
@@ -55,7 +64,7 @@ function Form({setToggle}) {
         {formData._id 
             ? <p className={`${styles.title} ${theme && styles.dark_title}`}>Edit task</p>
             : <p className={`${styles.title} ${theme && styles.dark_title}`}>Create task</p>}
-        <form onSubmit={getInputValues} className={styles.form}>
+        {screenLoading ? <Preloader theme={theme}/> : <form onSubmit={getInputValues} className={styles.form}>
             <input type="text" name='name' value={input.name} placeholder="Header" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
             <input type="time" name='time' value={input.time} placeholder="Time" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
             <input type="date" name='date' value={input.date} placeholder="Day" onChange={handleChange} className={`${styles.inp} ${theme && styles.dark_inp }`}/>
@@ -63,7 +72,7 @@ function Form({setToggle}) {
             {formData._id 
                 ? <button className={styles.create_btn}>Edit</button> 
                 : <button className={styles.create_btn}>Create</button>}
-        </form>
+        </form>}
     </div>
    
 }

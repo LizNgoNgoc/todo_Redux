@@ -117,7 +117,7 @@
     }
 
     .inputs_container {
-        height: calc(100vh - 375px);
+        height: calc(100vh - 240px);
     }
   }
 

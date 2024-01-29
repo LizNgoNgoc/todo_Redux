@@ -4,15 +4,15 @@ import { sendTodoId } from '../../redux/slices/Form';
 import { deleteTodo } from '../../redux/slices/Todo';
 import { useDeleteTodoMutation } from '../../redux/query/task';
 import Checkbox from '../../custom/Checkbox';
-import { setViewStateTrue } from '../../redux/slices/Func';
-import { setViewStateFalse } from '../../redux/slices/Func';
+import { useState } from 'react';
+
 
 export default function Todo({todo, setToggle}) {
     const theme = useSelector(state => state.funcSlice.darkTheme)
     const dispatch = useDispatch()
     const [apiDeleteTodo] = useDeleteTodoMutation()
-    // const [viewState, setViewState] = useState(false)
-    const viewState = useSelector(state => state.funcSlice.viewState)
+    const [viewState, setViewState] = useState(false)
+  
    
     function editBtnAction () {
         dispatch(sendTodoId(todo))
@@ -26,7 +26,7 @@ export default function Todo({todo, setToggle}) {
     }
 
     function viewComment() {
-        dispatch(setViewStateTrue(false))
+        setViewState(!viewState)
     }
 
 
